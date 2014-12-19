@@ -1,0 +1,56 @@
+2014-12-17 14:33:17.144 squashtest1[28250:1088744] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/jdegraad/Library/Developer/CoreSimulator/Devices/7E5F3C90-E117-478E-882D-D03770B333FD/data/Containers/Data/Application/6897B940-5293-481A-8582-CA5CB3FA4F2F/Library/Cookies/Cookies.binarycookies
+2014-12-17 14:33:17.649 squashtest1[28250:1088744] Apache Cordova native platform version 3.7.0 is starting.
+2014-12-17 14:33:17.650 squashtest1[28250:1088744] Multi-tasking -> Device: YES, App: YES
+2014-12-17 14:33:17.679 squashtest1[28250:1088744] Unlimited access to network resources
+2014-12-17 14:33:17.697 squashtest1[28250:1088744] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2014-12-17 14:33:19.525 squashtest1[28250:1088744] Resetting plugins due to page load.
+2014-12-17 14:33:19.719 squashtest1[28250:1088744] Finished load of: file:///Users/jdegraad/Library/Developer/CoreSimulator/Devices/7E5F3C90-E117-478E-882D-D03770B333FD/data/Containers/Bundle/Application/F9B53A97-F988-4B63-84A1-53BFC99BDF18/squashtest1.app/www/index.html
+2014-12-17 14:35:27.676 squashtest1[28397:1090525] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/jdegraad/Library/Developer/CoreSimulator/Devices/7E5F3C90-E117-478E-882D-D03770B333FD/data/Containers/Data/Application/7AB16A5B-216B-49DD-96D2-5DEEEA2B688D/Library/Cookies/Cookies.binarycookies
+2014-12-17 14:35:27.801 squashtest1[28397:1090525] Apache Cordova native platform version 3.7.0 is starting.
+2014-12-17 14:35:27.801 squashtest1[28397:1090525] Multi-tasking -> Device: YES, App: YES
+2014-12-17 14:35:27.803 squashtest1[28397:1090525] Unlimited access to network resources
+2014-12-17 14:35:27.806 squashtest1[28397:1090525] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2014-12-17 14:35:28.217 squashtest1[28397:1090525] Resetting plugins due to page load.
+2014-12-17 14:35:28.310 squashtest1[28397:1090525] Finished load of: file:///Users/jdegraad/Library/Developer/CoreSimulator/Devices/7E5F3C90-E117-478E-882D-D03770B333FD/data/Containers/Bundle/Application/73F86A3B-B6FF-4575-90FE-03E0FCAC7491/squashtest1.app/www/index.html
+2014-12-17 15:31:56.828 squashtest1[1007:7063] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/jdegraad/Library/Developer/CoreSimulator/Devices/7E5F3C90-E117-478E-882D-D03770B333FD/data/Containers/Data/Application/F9CF3E9E-8A48-488F-BF5C-5BC0A7DC2294/Library/Cookies/Cookies.binarycookies
+2014-12-17 15:31:57.187 squashtest1[1007:7063] Apache Cordova native platform version 3.7.0 is starting.
+2014-12-17 15:31:57.188 squashtest1[1007:7063] Multi-tasking -> Device: YES, App: YES
+2014-12-17 15:31:57.206 squashtest1[1007:7063] Unlimited access to network resources
+2014-12-17 15:31:57.219 squashtest1[1007:7063] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2014-12-17 15:31:58.054 squashtest1[1007:7063] Resetting plugins due to page load.
+2014-12-17 15:31:58.257 squashtest1[1007:7063] Finished load of: file:///Users/jdegraad/Library/Developer/CoreSimulator/Devices/7E5F3C90-E117-478E-882D-D03770B333FD/data/Containers/Bundle/Application/64B11DC6-7B8C-4FE6-9D56-2FA4B7D9B055/squashtest1.app/www/index.html
+2014-12-17 16:12:56.717 squashtest1[1994:23681] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/jdegraad/Library/Developer/CoreSimulator/Devices/7E5F3C90-E117-478E-882D-D03770B333FD/data/Containers/Data/Application/759D557C-8B21-4EBD-9E35-57838E12114B/Library/Cookies/Cookies.binarycookies
+2014-12-17 16:12:56.824 squashtest1[1994:23681] Apache Cordova native platform version 3.7.0 is starting.
+2014-12-17 16:12:56.824 squashtest1[1994:23681] Multi-tasking -> Device: YES, App: YES
+2014-12-17 16:12:56.827 squashtest1[1994:23681] Unlimited access to network resources
+2014-12-17 16:12:56.830 squashtest1[1994:23681] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2014-12-17 16:12:57.137 squashtest1[1994:23681] Resetting plugins due to page load.
+2014-12-17 16:12:57.195 squashtest1[1994:23681] Finished load of: file:///Users/jdegraad/Library/Developer/CoreSimulator/Devices/7E5F3C90-E117-478E-882D-D03770B333FD/data/Containers/Bundle/Application/1E40983D-9940-4FEB-AE12-ADFF5F509FFE/squashtest1.app/www/index.html

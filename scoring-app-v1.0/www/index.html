@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+        <link rel="stylesheet" href="css/themes/test1theme.css" />
+        <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script src="js/index.js"></script>
+    </head>
+    <body class="container">
+        <div data-role="page" class="ui-page" id="page1" data-theme="d">
+<!-- header ------------------------------ -->
+            <div data-role="header" data-position="fixed">
+             <p>SportyHQ</p>
+
+                <div data-role="navbar">
+                    
+                        <ul>
+                            <li><a href="#page1" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="none">Match</a></li>
+                            <li><a href="#page2" class="ui-btn ui-btn-inline ui-btn-persist" data-transition="none">Calls</a></li>
+                            <li><a href="#page3" class="ui-btn ui-btn-inline ui-btn-persist" data-transition="none">Serve Side</a></li>
+                        </ul>
+                    
+                </div>
+            </div>
+<!-- --------------------------------- main ui-content ---------------- -->
+        <div data-role="main" class="ui-content">  
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                  <button type="submit" class="btn btn-primary btn-lg btn-block" id="point_P1">
+                    Point for Player 1
+                  </button>
+                </div>
+                <div class="ui-block-b">
+                    <div class="button-wrap">
+                        <button type="submit" class="btn btn-success btn-lg btn-block" id="point_P2">
+                        Point for Player 2
+                        </button>
+                    </div>
+                </div>
+                <div class="ui-block-a">
+                    <form>
+                        <textarea placeholder="player1"></textarea>
+                    </form>
+                </div>
+                <div class="ui-block-b">
+                    <div class="button-wrap">
+                        <form>
+                            <textarea placeholder="player2"></textarea>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-grid-a">
+                <table id='rallyTable'>
+                    <thead>
+                      <tr>
+                        <th>Rally</th>
+                        <th>Player 1: Score</th>
+                        <th>Serveside</th>   
+                        <th>Player 2: Score</th>
+                      </tr>
+                    </thead>
+                      <tbody id='rallyBody'>
+                          <tr> 
+                          </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div> <!-- end of main page ui-content div -->
+    
+  <!-- -------------------------- Footer --------------------------------------- -->
+                        <div data-role="footer" data-position="fixed" data-fullscreen="true">
+                            <h3>&copy SportyHQ 2014</h3>
+                        </div> <!-- end of footer div -->
+
+    
+        </div> <!-- end of page div -->
+<!-- -----------------------Page 2 --------------------------- -->
+        <div data-role="page" class="ui-page"id="page2" data-theme="d">
+            
+            <div data-role="header" data-position="fixed">
+                <h1>SportyHQ</h1>
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#page1" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="none">Match</a></li>
+                        <li><a href="#page2" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="none">Calls</a></li>
+                        <li><a href="#page3" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="none">Serve Side</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="main" class="ui-content">
+                <button type="submit" class="btn btn-default btn-lg btn-block" id="let">
+                Let
+                </button>
+            
+                <button type="submit" class="btn btn-default btn-lg btn-block" id="stroke">stroke
+                </button>
+                
+                <button type="submit" class="btn btn-default btn-lg btn-block" id="conduct_warning">
+                Conduct Warning
+                </button>
+
+                <button type="submit" class="btn btn-default btn-lg btn-block" id="undo">
+                Undo
+                </button>
+                    
+                
+            </div>
+            <div data-role="footer"  data-position="fixed" data-fullscreen="true">
+                <h3>&copy SportyHQ 2014</h3>
+            </div>
+        </div>
+ <!-- --------------------- Page 3 ------------------------- -->
+        <div data-role="page" class="ui-page" id="page3" data-theme="d">
+            <div data-role="header" data-position="fixed">
+                <h1>SportyHQ</h1>
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#page1" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="none">Match</a></li>
+                        <li><a href="#page2" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="none">Calls</a></li>
+                        <li><a href="#page3" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="none">Serve Side</a></li>
+                    </ul>
+                </div>
+            </div>
+           
+            <div data-role="main" class="ui-content">
+               <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                      <button type="submit" class="btn btn-default btn-lg btn-block" id="serve_left">
+                        Serve Left
+                      </button>
+                    </div>
+                  
+                    <div class="ui-block-b"> 
+                        <div class="button-wrap">
+                            <button type="submit" class="btn btn-default btn-lg btn-block" id="serve_right">
+                            Serve Right
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                    <div class="ui-block-c"> 
+                        <button type="submit" class="btn btn-default btn-lg btn-block" id="undo">
+                        Undo
+                        </button>
+                    </div>
+                </div>
+            
+            <div data-role="footer" data-position="fixed" data-fullscreen="true">
+                <h3>&copy SportyHQ 2014</h3>
+            </div>
+        </div>
+</body>
+</html>
+ 
+
+
