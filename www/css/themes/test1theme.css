@@ -953,6 +953,14 @@ small {
 	position: absolute; top: 50%; margin-top: -1.2em;
 }
 
+#rallTable { @table-border-color: #ddd;}
+
+#rallyTable {
+  background: rgba(76,31,0, 0.4);
+  margin-bottom:30px;
+  margin-top:10px;
+}
+
 
 /******************************************** end of swiping pages *********************************/
 
