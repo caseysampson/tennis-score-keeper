@@ -114,6 +114,7 @@ var match = function() {
   //BUTTONS BELOW
 
   letCall = function() {
+    $.mobile.changePage("#page1");
     handleRally();
     rallyNumberIncrement();  
   }
@@ -124,6 +125,7 @@ var match = function() {
   }
 
   conductWarn = function() {
+    $.mobile.changePage("#page1");
     conductCall();
     rallyNumberIncrement();
   }
@@ -155,13 +157,13 @@ var match = function() {
   serveLeft = function() {
     $.mobile.changePage("#page1");
     game.serveside = 'L';
-    $('#dialog').text('');
+    // $('#dialog').text('');
   }
 
   serveRight = function() { 
     $.mobile.changePage("#page1");
     game.serveside = 'R';
-    $('#dialog').text('');
+    // $('#dialog').text('');
   }
 
   //BUTTONS ABOVE
@@ -206,6 +208,7 @@ var match = function() {
   strokeResult = function() {
     //PROMPT HANDLED IN DROPDOWN
     var refStroke = prompt('Is the stroke in favor of ' +playerOne.name+ ' or ' +playerTwo.name);
+    $.mobile.changePage("#page1");
     if (refStroke === currentPlayer.name) {
       awardPoint();
       switchServeSide(); 
@@ -237,7 +240,9 @@ var match = function() {
     if ((playerOne.score >= 11) && (playerOne.score - playerTwo.score >= 2)) {
       playerOne.games = playerOne.games + 1;
       resetScore();
-      $('#games').text('Games: '+playerOne.name+': '+playerOne.games+ ' - ' +playerTwo.name+': '+playerTwo.games);
+      $.mobile.changePage("#page4");
+      $('#gamesheading').text('GAMES');
+      $('#games').text(playerOne.name+': '+playerOne.games+ ' - ' +playerTwo.name+': '+playerTwo.games);
       resetTable();
     }
     if ((playerOne.games >= 3) || (playerTwo.games >= 3)) {
@@ -252,6 +257,7 @@ var match = function() {
     if ((playerTwo.score >= 11) && (playerTwo.score - playerOne.score >= 2)) {
       playerTwo.games = playerTwo.games + 1;
       resetScore();
+      $.mobile.changePage("#page4");
       $('#games').text('Games: '+ playerOne.name+': '+playerOne.games+ ' - ' +playerTwo.name+': '+playerTwo.games);  
       resetTable();
     }
@@ -271,6 +277,10 @@ var match = function() {
   resetTable = function() {
     var tbody = $("#rallyTable tbody");
     tbody.find("tr").remove();
+  }
+
+  nextGame = function() {
+    $.mobile.changePage("#page1");
   }
 
   resetScore = function() {
@@ -299,14 +309,13 @@ var match = function() {
     setInitialServingSide(); 
     $('#point_P1').text(playerOne.name+ " score: " +playerOne.score);
     $('#point_P2').text(playerTwo.name+ " score: " +playerTwo.score);
-
-
     $('#let').text("Let");
     $('#stroke').text("Stroke");
     $('#conduct_warning').text("Conduct Warning");
     $('#undo').text("Undo Last Rally");
     $('#serve_left').text("Serve Left");
     $('#serve_right').text("Serve Right");
+    $('#nextgame').text("Start Next Game");
   }
 
   this._bindEvents = function() {
@@ -318,6 +327,7 @@ var match = function() {
     $('body').on('click', '#undo', triggerUndo);
     $('body').on('click', '#serve_left', serveLeft);
     $('body').on('click', '#serve_right', serveRight);
+    $('body').on('click', '#nextgame', nextGame);
   };
     
 };

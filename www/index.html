@@ -35,16 +35,13 @@
         <div data-role="page" class="ui-page" id="page1" data-theme="d">
 <!-- header ------------------------------ -->
             <div data-role="header" data-position="fixed">
-             <p>SportyHQ</p>
-
+             <h1>SportyHQ</h1>
                 <div data-role="navbar">
-                    
-                        <ul>
-                            <li><a href="#page1" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="none">Match</a></li>
-                            <li><a href="#page2" class="ui-btn ui-btn-inline ui-btn-persist" data-transition="none">Calls</a></li>
-                            <li><a href="#page3" class="ui-btn ui-btn-inline ui-btn-persist" data-transition="none">Serve Side</a></li>
-                        </ul>
-                    
+                    <ul>
+                        <li><a href="#page1" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Match</a></li>
+                        <li><a href="#page2" class="ui-btn ui-btn-inline ui-btn-persist" data-transition="flip">Calls</a></li>
+                        <li><a href="#page3" class="ui-btn ui-btn-inline ui-btn-persist" data-transition="flip">Serve Side</a></li>
+                    </ul>                 
                 </div>
             </div>
 <!-- --------------------------------- main ui-content ---------------- -->
@@ -75,14 +72,14 @@
                     </div>
                 </div>
             </div>
-            <div class="ui-grid-a">
-                <table id='rallyTable'>
+            <div>
+                <table data-role="table" data-mode="columntoggle" class="ui-responsive" id='rallyTable'>
                     <thead>
                       <tr>
-                        <th>Rally</th>
-                        <th>Player 1: Score</th>
-                        <th>Serveside</th>   
-                        <th>Player 2: Score</th>
+                        <th data-priority="1">Rally</th>
+                        <th data-priority="2">P1-Score</th>
+                        <th data-priority="3">Serveside</th>   
+                        <th data-priority="4">P2-Score</th>
                       </tr>
                     </thead>
                       <tbody id='rallyBody'>
@@ -108,9 +105,9 @@
                 <h1>SportyHQ</h1>
                 <div data-role="navbar">
                     <ul>
-                        <li><a href="#page1" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="none">Match</a></li>
-                        <li><a href="#page2" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="none">Calls</a></li>
-                        <li><a href="#page3" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="none">Serve Side</a></li>
+                        <li><a href="#page1" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Match</a></li>
+                        <li><a href="#page2" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Calls</a></li>
+                        <li><a href="#page3" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Serve Side</a></li>
                     </ul>
                 </div>
             </div>
@@ -142,9 +139,9 @@
                 <h1>SportyHQ</h1>
                 <div data-role="navbar">
                     <ul>
-                        <li><a href="#page1" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="none">Match</a></li>
-                        <li><a href="#page2" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="none">Calls</a></li>
-                        <li><a href="#page3" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="none">Serve Side</a></li>
+                        <li><a href="#page1" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Match</a></li>
+                        <li><a href="#page2" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Calls</a></li>
+                        <li><a href="#page3" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Serve Side</a></li>
                     </ul>
                 </div>
             </div>
@@ -177,8 +174,31 @@
                 <h3>&copy SportyHQ 2014</h3>
             </div>
         </div>
+
+
+<!-------------------------Page 4-------------------------------------------->
+    <div data-role="page" class="ui-page" id="page4" data-theme="d">
+        <div data-role="header" data-position="fixed">
+            <h1>SportyHQ</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#page1" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Match</a></li>
+                    <li><a href="#page2" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Calls</a></li>
+                    <li><a href="#page3" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Serve Side</a></li>
+                </ul>
+            </div>
+        </div>
+        <h1 id="gamesheading"></h1>
+        <h2 id="games"></h2>
+        <div data-role="main" class="ui-content">
+            <div class="ui-block-c"> 
+                <button type="submit" class="btn btn-default btn-lg btn-block" id="nextgame">
+                Start Next Game
+                </button>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
- 
-
 
