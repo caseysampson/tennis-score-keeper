@@ -950,7 +950,8 @@ small {
 }
 
 #undo {
-	position: absolute; top: 40%; margin-top: -1.2em;
+	/*position: absolute; top: 40%; margin-top: -1.2em;*/
+
 	/*margin-left: auto;
   margin-right: auto;
   width: 90%;*/
@@ -960,7 +961,6 @@ small {
 
 #rallyTable {
   background: rgba(76,31,0, 0.4);
-  /*background: rgba(0,0,0, 0.55);*/
   margin-bottom:30px;
   margin-top:10px;
 }
@@ -980,10 +980,24 @@ small {
 }
 
 #nextgame {
-	position: absolute; top: 45%; margin-top: -1.2em;
+	position: absolute; top: 65%; margin-top: -1.2em;
 	margin-left: auto;
   margin-right: auto;
-  width: 90%;
+  width: 100%;
+}
+
+#conductheading {
+	color: #f06d2e;
+	margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+#show_conduct_warning {
+	color: #666;
+	margin-left: auto;
+  margin-right: auto;
+  width: 70%;
 }
 
 

@@ -59,19 +59,8 @@
                         </button>
                     </div>
                 </div>
-                <div class="ui-block-a">
-                    <form>
-                        <textarea placeholder="player1"></textarea>
-                    </form>
-                </div>
-                <div class="ui-block-b">
-                    <div class="button-wrap">
-                        <form>
-                            <textarea placeholder="player2"></textarea>
-                        </form>
-                    </div>
-                </div>
             </div>
+
             <div>
                 <table data-role="table" data-mode="columntoggle" class="ui-responsive" id='rallyTable'>
                     <thead>
@@ -112,23 +101,32 @@
                 </div>
             </div>
             <div data-role="main" class="ui-content">
+
                 <button type="submit" class="btn btn-default btn-lg btn-block" id="let">
                 Let
                 </button>
-            
-                <button type="submit" class="btn btn-default btn-lg btn-block" id="stroke">stroke
-                </button>
+
+                <select id="stroke" data-native-menu="true" data-placeholder="true">
+                  <!-- <option value="" disabled selected style="display:none;">Stroke</option> -->
+                  <option>Stroke</option>
+                  <option value="playerOneStroke" id="playerOneStroke">player1</option>
+                  <option value="playerTwoStroke" id="playerTwoStroke">player2</option>
+                </select>
                 
-                <button type="submit" class="btn btn-default btn-lg btn-block" id="conduct_warning">
-                Conduct Warning
-                </button>
+                <select id="conduct_warning" data-native-menu="true" data-placeholder="true">
+                  <!-- <option value="" disabled selected style="display:none;">Conduct Warning</option> -->
+                  <option>Conduct Warning</option>
+                  <option value="playerOneConduct" id="playerOneConduct">player1</option>
+                  <option value="playerTwoConduct" id="playerTwoConduct">player2</option>
+                </select>
+
 
                 <button type="submit" class="btn btn-default btn-lg btn-block" id="undo">
                 Undo
-                </button>
-                    
+                </button>  
                 
             </div>
+
             <div data-role="footer"  data-position="fixed" data-fullscreen="true">
                 <h3>&copy SportyHQ 2014</h3>
             </div>
@@ -163,12 +161,12 @@
                     </div>
                 </div>
                 
-                    <div class="ui-block-c"> 
-                        <button type="submit" class="btn btn-default btn-lg btn-block" id="undo">
-                        Undo
-                        </button>
-                    </div>
-                </div>
+                <!-- <div class="ui-block-c"> 
+                    <button type="submit" class="btn btn-default btn-lg btn-block" id="undo">
+                    Undo
+                    </button>
+                </div> -->
+            </div>
             
             <div data-role="footer" data-position="fixed" data-fullscreen="true">
                 <h3>&copy SportyHQ 2014</h3>
@@ -176,7 +174,7 @@
         </div>
 
 
-<!-------------------------Page 4-------------------------------------------->
+<!---------------------------Page 4-------------------------------------------->
     <div data-role="page" class="ui-page" id="page4" data-theme="d">
         <div data-role="header" data-position="fixed">
             <h1>SportyHQ</h1>
@@ -188,8 +186,11 @@
                 </ul>
             </div>
         </div>
-        <h1 id="gamesheading"></h1>
+        <h1 id="gamesheading">GAMES</h1>
         <h2 id="games"></h2>
+        <h1 id="conductheading"></h1>
+        <h2 id="show_conduct_warning"></h2>
+        <br>
         <div data-role="main" class="ui-content">
             <div class="ui-block-c"> 
                 <button type="submit" class="btn btn-default btn-lg btn-block" id="nextgame">
@@ -197,8 +198,48 @@
                 </button>
             </div>
         </div>
+
+         <div data-role="footer" data-position="fixed" data-fullscreen="true">
+            <h3>&copy SportyHQ 2014</h3>
+        </div>
     </div>
 
+<!-- ----------------------------page 5--------------------------------------- -->
+    <div data-role="page" class="ui-page" id="page5" data-theme="d">
+        <div data-role="header" data-position="fixed">
+            <h1>SportyHQ</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#page1" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Match</a></li>
+                    <li><a href="#page2" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Calls</a></li>
+                    <li><a href="#page3" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Serve Side</a></li>
+                </ul>
+            </div>
+        </div>
+
+         <div class="ui-block-a">
+            <form>
+                <textarea placeholder="player1"></textarea>
+            </form>
+        </div>
+        <div class="ui-block-b">
+            <form>
+                <textarea placeholder="player2"></textarea>
+            </form>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <div class="ui-block-c"> 
+                <button type="submit" class="btn btn-default btn-lg btn-block" id="startmatch">
+                Start Match
+                </button>
+            </div>
+        </div>
+
+        <div data-role="footer" data-position="fixed" data-fullscreen="true">
+            <h3>&copy SportyHQ 2014</h3>
+        </div>
+    </div>
 </body>
 </html>
 
