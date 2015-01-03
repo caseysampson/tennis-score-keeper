@@ -217,24 +217,27 @@
             </div>
         </div>
 
-         <div class="ui-block-a">
-            <form>
-                <textarea placeholder="player1"></textarea>
-            </form>
-        </div>
-        <div class="ui-block-b">
-            <form>
-                <textarea placeholder="player2"></textarea>
-            </form>
+         
+        <form>
+            <div>
+                <label for="basic">Enter player one's name:</label>
+                <!-- <textarea placeholder="name"></textarea> -->
+                <input type="text" name="playerOneName" id="playerOneName" value="" placeholder="player name"/>
+            </div>    
+            <div>
+                <label for="basic">Enter player two's name:</label>
+                <!-- <textarea placeholder="name"></textarea> -->
+                <input type="text" name="playerTwoName" id="playerTwoName" value="" placeholder="player name"/>
+            </div>
+        </form>
+    
+
+        <div> 
+            <button type="submit" class="btn btn-default btn-lg btn-block" id="startmatch">
+            Start Match
+            </button>
         </div>
 
-        <div data-role="main" class="ui-content">
-            <div class="ui-block-c"> 
-                <button type="submit" class="btn btn-default btn-lg btn-block" id="startmatch">
-                Start Match
-                </button>
-            </div>
-        </div>
 
         <div data-role="footer" data-position="fixed" data-fullscreen="true">
             <h3>&copy SportyHQ 2014</h3>
