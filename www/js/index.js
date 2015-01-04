@@ -37,6 +37,9 @@ var match = function() {
     $('#playerTwoStroke').text(playerTwo.name);
     $('#playerOneConduct').text(playerOne.name);
     $('#playerTwoConduct').text(playerTwo.name);
+    $('#serveside').text("Select serve side for " +currentPlayer.name);
+    $('#P1_score').text(playerOne.name);
+    $('#P2_score').text(playerTwo.name);
   }
 
   //SERVE SIDE//
@@ -63,6 +66,7 @@ var match = function() {
 
   triggerUndo = function() {
     $.mobile.changePage("#page3");
+    $('#serveside').text(""); //FIX THIS!!!!!
     if (rallyNumber > 2) {
       undo();
     } else {
@@ -78,8 +82,7 @@ var match = function() {
     playerOne.score = lastGameState.playerOneScore;
     playerTwo.score = lastGameState.playerTwoScore;
     game.servingside = lastGameState.servingSide;
-    rallyNumber = lastGameState.rally;
-    
+    rallyNumber = lastGameState.rally;  
     $('#point_P1').text(playerOne.name+ " score: " +playerOne.score).off('click')
     $('#point_P2').text(playerTwo.name+ " score: " +playerTwo.score).off('click');
   }
@@ -89,10 +92,7 @@ var match = function() {
     $('#point_P2').text(playerTwo.name+ " score: " +playerTwo.score);
     var tbody = $("#rallyTable tbody");
     var row = $("<tr>").appendTo(tbody).get(0);
-
     $('#rallyTable tbody tr:last').attr('data-gamestate', serializeGame());
-    // $('#rallyTable tbody tr:last').attr('gameState', serializeGame());
-
     var rallyCount = row.insertCell(0);
     var playerOneScore = row.insertCell(1);
     var gameServeside = row.insertCell(2);
@@ -109,9 +109,23 @@ var match = function() {
       playerTwoScore.innerHTML = playerTwo.score; 
     } else {
       playerTwoScore.innerHTML = "-";
-    }
-    
+    }    
   }
+
+  //Game End Table BELOW
+
+  handleGame = function() {
+    var tbody = $("#gameTable tbody");
+    var row = $("<tr>").appendTo(tbody).get(0);
+    var gameCount = row.insertCell(0);
+    var playerOneGameScore = row.insertCell(1);
+    var playerTwoGameScore = row.insertCell(2);
+
+    gameCount.innerHTML = (playerOne.games + playerTwo.games);
+    playerOneGameScore.innerHTML = playerOne.score;
+    playerTwoGameScore.innerHTML = playerTwo.score;        
+  }
+
 
   //BUTTONS BELOW
 
@@ -244,6 +258,7 @@ var match = function() {
     $.mobile.changePage("#page3");
     switchPlayer();
     awardPoint();
+    $('#serveside').text("Select serve side for " +currentPlayer.name);
   }
 
   awardPoint = function() {
@@ -261,10 +276,9 @@ var match = function() {
     
     if ((playerOne.score >= 11) && (playerOne.score - playerTwo.score >= 2)) {
       playerOne.games = playerOne.games + 1;
+      handleGame(); // Test HANDLEGAME
       resetScore();
       $.mobile.changePage("#page4");
-      // $('#games').text(playerOne.name+': '+playerOne.games+ ' - ' +playerTwo.name+': '+playerTwo.games);
-      // resetTable();
       showEndGame();
     }
     if ((playerOne.games >= 3) || (playerTwo.games >= 3)) {
@@ -278,10 +292,9 @@ var match = function() {
     
     if ((playerTwo.score >= 11) && (playerTwo.score - playerOne.score >= 2)) {
       playerTwo.games = playerTwo.games + 1;
+      handleGame(); // Test HANDLEGAME
       resetScore();
       $.mobile.changePage("#page4");
-      // $('#games').text(playerOne.name+': '+playerOne.games+ ' - ' +playerTwo.name+': '+playerTwo.games);  
-      // resetTable();
       showEndGame();
     }
     if ((playerOne.games >= 3) || (playerTwo.games >= 3)) {
@@ -298,11 +311,13 @@ var match = function() {
   }
 
   showEndGame = function() {
-    $('#games').text(playerOne.name+': '+playerOne.games+ ' - ' +playerTwo.name+': '+playerTwo.games);  
-      resetTable();
+    $('#P1games').text(playerOne.name+': '+playerOne.games)
+    $('#P2games').text(playerTwo.name+': '+playerTwo.games);  
+    resetTable();
     if ((playerOne.conductwarning > 0) && (playerOne.conductwarning > 0)) {
       $('#conductheading').text('CONDUCT WARNING');
-      $('#show_conduct_warning').text(playerOne.name+': '+playerOne.conductwarning+ ' - ' +playerTwo.name+': '+playerTwo.conductwarning);
+      $('#P1show_conduct_warning').text(playerOne.name+': '+playerOne.conductwarning);
+      $('#P2show_conduct_warning').text(playerTwo.name+': '+playerTwo.conductwarning);
     }
   }
 
@@ -312,6 +327,7 @@ var match = function() {
   }
 
   nextGame = function() {
+    $('#serveside').text("Select serve side for " +currentPlayer.name);
     $.mobile.changePage("#page3");
   }
 
@@ -335,10 +351,6 @@ var match = function() {
   this.startMatch = function() {
     $.mobile.changePage("#page5");
     resetMatch();
-    // getPlayers(); // WILL BE HANDLED ON INTRO PAGE
-    
-    // $('#point_P1').text(playerOne.name+ " score: " +playerOne.score);
-    // $('#point_P2').text(playerTwo.name+ " score: " +playerTwo.score);
     $('#let').text("Let");
     // $('#conduct_warning').text("Conduct Warning");
     $('#undo').text("Undo Last Rally");
@@ -346,9 +358,9 @@ var match = function() {
     $('#serve_right').text("Serve Right");
     $('#nextgame').text("Start Next Game"); 
     $('#gamesheading').text('GAMES');
-    $('#games').text(playerOne.name+': '+playerOne.games+ ' - ' +playerTwo.name+': '+playerTwo.games);
-    // $('#conductheading').text('CONDUCT WARNING');
-    // $('#show_conduct_warning').text(playerOne.name+': '+playerOne.conductwarning+ ' - ' +playerTwo.name+': '+playerTwo.conductwarning);
+    $('#P1games').text(playerOne.name+': '+playerOne.games)
+    $('#P2games').text(playerTwo.name+': '+playerTwo.games);
+    
   }
 
   this._bindEvents = function() {

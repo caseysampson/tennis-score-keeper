@@ -957,7 +957,7 @@ small {
   width: 90%;*/
 }
 
-#rallTable { @table-border-color: #ddd;}
+#rallyTable { @table-border-color: #ddd;}
 
 #rallyTable {
   background: rgba(76,31,0, 0.4);
@@ -965,14 +965,29 @@ small {
   margin-top:10px;
 }
 
-#games {
+#gameTable { @table-border-color: #ddd;}
+
+#gameTable {
+  background: rgba(76,31,0, 0.4);
+  margin-bottom:30px;
+  margin-top:10px;
+}
+
+#P1games {
 	color: #666;
 	margin-left: auto;
   margin-right: auto;
   width: 70%;
 }
 
-#gamesheading {
+#P2games {
+	color: #666;
+	margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+#gamesheading { 
 	color: #f06d2e;
 	margin-left: auto;
   margin-right: auto;
@@ -980,7 +995,7 @@ small {
 }
 
 #nextgame {
-	position: absolute; top: 65%; margin-top: -1.2em;
+	position: absolute; top: 80%; margin-top: -1.2em;
 	margin-left: auto;
   margin-right: auto;
   width: 100%;
@@ -993,8 +1008,22 @@ small {
   width: 70%;
 }
 
-#show_conduct_warning {
+#P1show_conduct_warning {
 	color: #666;
+	margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+#P2show_conduct_warning {
+	color: #666;
+	margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+#serveside {
+	color: #f06d2e;
 	margin-left: auto;
   margin-right: auto;
   width: 70%;

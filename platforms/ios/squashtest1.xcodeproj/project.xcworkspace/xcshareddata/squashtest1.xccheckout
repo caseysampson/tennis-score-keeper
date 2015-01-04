@@ -5,13 +5,13 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>2F116231-AE40-4CC9-8E8D-25BB208501EF</string>
+	<string>1EF05FC1-1CBE-43E0-9F7A-DA07025E22BC</string>
 	<key>IDESourceControlProjectName</key>
 	<string>squashtest1</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>E51E62D43C260A2C56497C4A8715CFA5A4DEF544</key>
-		<string>github.com:jdegraad/scoring-app-v1.0.git</string>
+		<string>https://github.com/jdegraad/scoring-app-v1.0.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>platforms/ios/squashtest1.xcodeproj</string>
@@ -21,7 +21,7 @@
 		<string>../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>github.com:jdegraad/scoring-app-v1.0.git</string>
+	<string>https://github.com/jdegraad/scoring-app-v1.0.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>

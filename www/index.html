@@ -52,13 +52,13 @@
                     Point for Player 1
                   </button>
                 </div>
-                <div class="ui-block-b">
-                    <div class="button-wrap">
-                        <button type="submit" class="btn btn-success btn-lg btn-block" id="point_P2">
-                        Point for Player 2
-                        </button>
-                    </div>
+            <div class="ui-block-b">
+                <div class="button-wrap">
+                    <button type="submit" class="btn btn-success btn-lg btn-block" id="point_P2">
+                    Point for Player 2
+                    </button>
                 </div>
+            </div>
             </div>
 
             <div>
@@ -66,9 +66,9 @@
                     <thead>
                       <tr>
                         <th data-priority="1">Rally</th>
-                        <th data-priority="2">P1-Score</th>
+                        <th data-priority="2" id="P1_score">P1-Score</th>
                         <th data-priority="3">Serveside</th>   
-                        <th data-priority="4">P2-Score</th>
+                        <th data-priority="4" id="P2_score">P2-Score</th>
                       </tr>
                     </thead>
                       <tbody id='rallyBody'>
@@ -161,11 +161,9 @@
                     </div>
                 </div>
                 
-                <!-- <div class="ui-block-c"> 
-                    <button type="submit" class="btn btn-default btn-lg btn-block" id="undo">
-                    Undo
-                    </button>
-                </div> -->
+                <h3 id="serveside"> 
+                    Select Serve Side
+                </h3>
             </div>
             
             <div data-role="footer" data-position="fixed" data-fullscreen="true">
@@ -186,11 +184,30 @@
                 </ul>
             </div>
         </div>
-        <h1 id="gamesheading">GAMES</h1>
-        <h2 id="games"></h2>
-        <h1 id="conductheading"></h1>
-        <h2 id="show_conduct_warning"></h2>
-        <br>
+
+        <!-- <h2 id="gamesheading">GAMES</h2>
+        <h3 id="P1games"></h3>
+        <h3 id="P2games"></h3>
+        <h2 id="conductheading"></h2>
+        <h3 id="P1show_conduct_warning"></h3>
+        <h3 id="P2show_conduct_warning"></h3> -->
+        
+        <div>
+            <table data-role="table" data-mode="columntoggle" class="ui-responsive" id='gameTable'>
+                <thead>
+                  <tr>
+                    <th data-priority="1">Game</th>
+                    <th data-priority="2">P1-Score</th>   
+                    <th data-priority="3">P2-Score</th>
+                  </tr>
+                </thead>
+                  <tbody id='gameBody'>
+                      <tr> 
+                      </tr>
+                </tbody>
+            </table>
+        </div>
+
         <div data-role="main" class="ui-content">
             <div class="ui-block-c"> 
                 <button type="submit" class="btn btn-default btn-lg btn-block" id="nextgame">
