@@ -993,9 +993,16 @@ small {
   margin-right: auto;
   width: 70%;
 }
-
+	
 #nextgame {
-	position: absolute; top: 80%; margin-top: -1.2em;
+	position: absolute; top: 90%; margin-top: -1.2em;
+	margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+#nextmatch {
+	position: absolute; top: 90%; margin-top: -1.2em;
 	margin-left: auto;
   margin-right: auto;
   width: 100%;

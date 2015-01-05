@@ -66,9 +66,9 @@
                     <thead>
                       <tr>
                         <th data-priority="1">Rally</th>
-                        <th data-priority="2" id="P1_score">P1-Score</th>
+                        <th data-priority="2" id="P1_name">P1-Score</th>
                         <th data-priority="3">Serveside</th>   
-                        <th data-priority="4" id="P2_score">P2-Score</th>
+                        <th data-priority="4" id="P2_name">P2-Score</th>
                       </tr>
                     </thead>
                       <tbody id='rallyBody'>
@@ -120,11 +120,9 @@
                   <option value="playerTwoConduct" id="playerTwoConduct">player2</option>
                 </select>
 
-
                 <button type="submit" class="btn btn-default btn-lg btn-block" id="undo">
                 Undo
-                </button>  
-                
+                </button>                 
             </div>
 
             <div data-role="footer"  data-position="fixed" data-fullscreen="true">
@@ -150,8 +148,7 @@
                       <button type="submit" class="btn btn-default btn-lg btn-block" id="serve_left">
                         Serve Left
                       </button>
-                    </div>
-                  
+                    </div>   
                     <div class="ui-block-b"> 
                         <div class="button-wrap">
                             <button type="submit" class="btn btn-default btn-lg btn-block" id="serve_right">
@@ -171,7 +168,6 @@
             </div>
         </div>
 
-
 <!---------------------------Page 4-------------------------------------------->
     <div data-role="page" class="ui-page" id="page4" data-theme="d">
         <div data-role="header" data-position="fixed">
@@ -184,21 +180,21 @@
                 </ul>
             </div>
         </div>
-
-        <!-- <h2 id="gamesheading">GAMES</h2>
+        
+        <h2 id="gamesheading">GAMES</h2>
         <h3 id="P1games"></h3>
         <h3 id="P2games"></h3>
         <h2 id="conductheading"></h2>
         <h3 id="P1show_conduct_warning"></h3>
-        <h3 id="P2show_conduct_warning"></h3> -->
-        
+        <h3 id="P2show_conduct_warning"></h3>
+
         <div>
             <table data-role="table" data-mode="columntoggle" class="ui-responsive" id='gameTable'>
                 <thead>
                   <tr>
                     <th data-priority="1">Game</th>
-                    <th data-priority="2">P1-Score</th>   
-                    <th data-priority="3">P2-Score</th>
+                    <th data-priority="2" id="P1_score">P1-Score</th>   
+                    <th data-priority="3" id="P2_score">P2-Score</th>
                   </tr>
                 </thead>
                   <tbody id='gameBody'>
@@ -211,7 +207,10 @@
         <div data-role="main" class="ui-content">
             <div class="ui-block-c"> 
                 <button type="submit" class="btn btn-default btn-lg btn-block" id="nextgame">
-                Start Next Game
+                    Start Next Game
+                </button>
+                <button type='submit' class='btn btn-default btn-lg btn-block' id='nextmatch'>
+                    Start Next Match
                 </button>
             </div>
         </div>
@@ -233,28 +232,23 @@
                 </ul>
             </div>
         </div>
-
-         
+        
         <form>
             <div>
                 <label for="basic">Enter player one's name:</label>
-                <!-- <textarea placeholder="name"></textarea> -->
                 <input type="text" name="playerOneName" id="playerOneName" value="" placeholder="player name"/>
             </div>    
             <div>
                 <label for="basic">Enter player two's name:</label>
-                <!-- <textarea placeholder="name"></textarea> -->
                 <input type="text" name="playerTwoName" id="playerTwoName" value="" placeholder="player name"/>
             </div>
         </form>
     
-
         <div> 
             <button type="submit" class="btn btn-default btn-lg btn-block" id="startmatch">
             Start Match
             </button>
         </div>
-
 
         <div data-role="footer" data-position="fixed" data-fullscreen="true">
             <h3>&copy SportyHQ 2014</h3>
