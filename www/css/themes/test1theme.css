@@ -973,18 +973,12 @@ small {
   margin-top:10px;
 }
 
-#P1games {
+#games {
 	color: #666;
 	margin-left: auto;
   margin-right: auto;
   width: 70%;
-}
-
-#P2games {
-	color: #666;
-	margin-left: auto;
-  margin-right: auto;
-  width: 70%;
+  display: inline
 }
 
 #gamesheading { 
@@ -992,6 +986,7 @@ small {
 	margin-left: auto;
   margin-right: auto;
   width: 70%;
+  display: inline
 }
 	
 #nextgame {
@@ -1013,20 +1008,15 @@ small {
 	margin-left: auto;
   margin-right: auto;
   width: 70%;
+  display: inline
 }
 
-#P1show_conduct_warning {
+#show_conduct_warning {
 	color: #666;
 	margin-left: auto;
   margin-right: auto;
   width: 70%;
-}
-
-#P2show_conduct_warning {
-	color: #666;
-	margin-left: auto;
-  margin-right: auto;
-  width: 70%;
+  display: inline
 }
 
 #serveside {

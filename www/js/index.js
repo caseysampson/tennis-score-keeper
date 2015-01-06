@@ -60,13 +60,13 @@ var match = function() {
       playerTwoScore: playerTwo.score,
       servingSide: game.serveside,
       rally: rallyNumber,
+      playerCurrent: currentPlayer,
     };
     return gameState;
   }
 
   var triggerUndo = function() {
-    $.mobile.changePage("#page3");
-    $('#serveside').text(""); //FIX THIS!!!!!
+    // $('#serveside').text(""); //FIX THIS!!!!!
     if (rallyNumber > 2) {
       undo();
     } else {
@@ -77,13 +77,23 @@ var match = function() {
 
   var undo = function() {
     var lastGameState = gameHistory.pop();
+    // console.log(lastGameState.playerCurrent);
+    // console.log(currentPlayer);
     $('#rallyTable tr:last').remove();
+    if (playerOne == lastGameState.playerCurrent) {
+      currentPlayer = playerOne;
+    } else {
+      currentPlayer = playerTwo;
+    }
     playerOne.score = lastGameState.playerOneScore;
     playerTwo.score = lastGameState.playerTwoScore;
     game.servingside = lastGameState.servingSide;
-    rallyNumber = lastGameState.rally;  
+    rallyNumber = lastGameState.rally; 
+    $('#serveside').text("Select serve side for " +currentPlayer.name); 
     $('#point_P1').text(playerOne.name+ " score: " +playerOne.score).off('click')
     $('#point_P2').text(playerTwo.name+ " score: " +playerTwo.score).off('click');
+    switchServeSide();
+    $.mobile.changePage("#page1");
   }
 
   //RALLY//
@@ -95,18 +105,16 @@ var match = function() {
     $('#rallyTable tbody tr:last').attr('data-gamestate', serializeGame());
     var rallyCount = row.insertCell(0);
     var playerOneScore = row.insertCell(1);
-    var gameServeside = row.insertCell(2);
-    var playerTwoScore = row.insertCell(3);
+    var playerTwoScore = row.insertCell(2);
 
     rallyCount.innerHTML = rallyNumber;
     if (currentPlayer == playerOne) {
-      playerOneScore.innerHTML = playerOne.score;
+      playerOneScore.innerHTML = playerOne.score + game.serveside;
     } else {
       playerOneScore.innerHTML = "-";
     }
-    gameServeside.innerHTML = game.serveside;
     if (currentPlayer == playerTwo) {
-      playerTwoScore.innerHTML = playerTwo.score; 
+      playerTwoScore.innerHTML = playerTwo.score + game.serveside; 
     } else {
       playerTwoScore.innerHTML = "-";
     }    
@@ -129,8 +137,10 @@ var match = function() {
   //BUTTONS//
   var letCall = function() {
     $.mobile.changePage("#page1");
+    switchServeSide();
     handleRally();
     rallyNumberIncrement();  
+    switchServeSide();
   }
 
   var checkServerPlayerOne = function() {
@@ -139,8 +149,8 @@ var match = function() {
       switchServeSide();
       rallyNumberIncrement();
     } else {
+      $.mobile.changePage("#page3");
       handOut();
-      rallyNumberIncrement();
     }
   }
 
@@ -150,19 +160,25 @@ var match = function() {
       switchServeSide();
       rallyNumberIncrement();
     } else {
+      $.mobile.changePage("#page3");
       handOut();
-      rallyNumberIncrement();
     }
   }
 
   var serveLeft = function() {
     $.mobile.changePage("#page1");
     game.serveside = 'L';
+    handleRally();
+    rallyNumberIncrement();
+    switchServeSide();
   }
 
   var serveRight = function() { 
     $.mobile.changePage("#page1");
     game.serveside = 'R';
+    handleRally();
+    rallyNumberIncrement();
+    switchServeSide();
   }
 
   //BUTTONS ABOVE
@@ -235,6 +251,7 @@ var match = function() {
           rallyNumberIncrement();
           $.mobile.changePage("#page1");
         } else {
+          $.mobile.changePage("#page3");
           handOut(); 
           rallyNumberIncrement();
         }
@@ -246,6 +263,7 @@ var match = function() {
           rallyNumberIncrement();
           $.mobile.changePage("#page1");
         } else {
+          $.mobile.changePage("#page3");
           handOut();
           rallyNumberIncrement(); 
         }
@@ -256,11 +274,50 @@ var match = function() {
   }
 
   var handOut = function() {
-    $.mobile.changePage("#page3");
     switchPlayer();
-    awardPoint();
+    awardPointHandout();
     $('#serveside').text("Select serve side for " +currentPlayer.name);
   }
+
+  //FIX THIS DUPLICATE BELOW THREE FUNCTIONS// (without handeRal
+  var awardPointHandout = function() {
+    if (currentPlayer == playerOne) {
+      awardPointToPlayerOneHandout();
+    } else {
+      awardPointToPlayerTwoHandout();
+    }
+  }
+
+  var awardPointToPlayerOneHandout= function() {
+    playerOne.score = playerOne.score + 1;
+    
+    if ((playerOne.score >= 11) && (playerOne.score - playerTwo.score >= 2)) {
+      playerOne.games = playerOne.games + 1;
+      handleGame(); 
+      resetScore();
+      $.mobile.changePage("#page4");
+      showEndGame();
+    }
+    if ((playerOne.games >= 3) || (playerTwo.games >= 3)) {
+      checkMatchOver();
+    }
+  }
+
+  var awardPointToPlayerTwoHandout = function() { 
+    playerTwo.score = playerTwo.score + 1;
+    
+    if ((playerTwo.score >= 11) && (playerTwo.score - playerOne.score >= 2)) {
+      playerTwo.games = playerTwo.games + 1;
+      handleGame(); 
+      resetScore();
+      $.mobile.changePage("#page4");
+      showEndGame();
+    }
+    if ((playerOne.games >= 3) || (playerTwo.games >= 3)) {
+      checkMatchOver();
+    }
+  }
+  //FIX THIS DUPLICATE ABOVE THREE FUNCTIONS// (without handeRally)
 
   var awardPoint = function() {
     gameHistory.push(serializeGame());
@@ -319,13 +376,11 @@ var match = function() {
   }
 
   var showEndGame = function() {
-    $('#P1games').text(playerOne.name+': '+playerOne.games)
-    $('#P2games').text(playerTwo.name+': '+playerTwo.games);  
+    $('#games').text(playerOne.name+': '+playerOne.games+ ' vs ' +playerTwo.name+': '+playerTwo.games) 
     resetRallyTable();
-    if ((playerOne.conductwarning > 0) && (playerOne.conductwarning > 0)) {
+    if ((playerOne.conductwarning > 0) || (playerTwo.conductwarning > 0)) {
       $('#conductheading').text('CONDUCT WARNING');
-      $('#P1show_conduct_warning').text(playerOne.name+': '+playerOne.conductwarning);
-      $('#P2show_conduct_warning').text(playerTwo.name+': '+playerTwo.conductwarning);
+      $('#show_conduct_warning').text(playerOne.name+': '+playerOne.conductwarning+ ' vs ' +playerTwo.name+': '+playerTwo.conductwarning);
     }
   }
 
@@ -362,7 +417,6 @@ var match = function() {
     $("#nextgame").show();
   }
   
-
   this.startMatch = function() {
     $.mobile.changePage("#page5");
     resetMatch();
