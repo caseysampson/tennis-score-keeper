@@ -59,9 +59,9 @@
                     </button>
                 </div>
             </div>
-            </div>
+        </div>
 
-            <div>
+            <!-- <div>
                 <table data-role="table" data-mode="columntoggle" class="ui-responsive" id='rallyTable'>
                     <thead>
                       <tr>
@@ -75,24 +75,25 @@
                           </tr>
                     </tbody>
                 </table>
-            </div>
+            </div> -->
 
-            <!-- Alternative table: "reflow" -->
-            <!-- <div>
-                <table data-role="table" data-mode="reflow" class="ui-responsive" id='rallyTable'>
+            <!-- Alternative -->
+            <!-- <div> -->
+            <div id="rallyscroll">
+                 <table class="ui-responsive" id='rallyTable'>
                     <thead>
-                      <tr>
-                        <th>Rally</th>
-                        <th id="P1_name">P1-Score</th> 
-                        <th id="P2_name">P2-Score</th>
-                      </tr>
+                       <tr>
+                           <th>Rally</th>
+                           <th id="P1_name">P1-Score</th> 
+                           <th id="P2_name">P2-Score</th>
+                       </tr>
                     </thead>
-                      <tbody id='rallyBody'>
-                          <tr> 
-                          </tr>
+                    <tbody id='rallyBody' style="height:100px; overflow:auto;">
+                        <tr> 
+                        </tr>
                     </tbody>
                 </table>
-            </div> -->
+            </div>
 
         </div> <!-- end of main page ui-content div -->
     
@@ -197,13 +198,14 @@
             </div>
         </div>
         
-        <h3 id="gamesheading">GAMES</h3><br/>
-        <h4 id="games"></h4><br/>
-        <h3 id="conductheading"></h3><br/>
+        <h3 id="gamesheading">GAMES</h3>
+        <h4 id="games"></h4>
+        <h3 id="conductheading"></h3>
         <h4 id="show_conduct_warning"></h4>
 
         <div>
-            <table data-role="table" data-mode="columntoggle" class="ui-responsive" id='gameTable'>
+            <!-- <table data-role="table" data-mode="columntoggle" class="ui-responsive" id='gameTable'> -->
+            <table class="ui-responsive" id='gameTable'>
                 <thead>
                   <tr>
                     <th data-priority="1">Game</th>
@@ -219,7 +221,7 @@
         </div>
 
         <div data-role="main" class="ui-content">
-            <div class="ui-block-c"> 
+            <div> 
                 <button type="submit" class="btn btn-default btn-lg btn-block" id="nextgame">
                     Start Next Game
                 </button>

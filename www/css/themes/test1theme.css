@@ -951,72 +951,123 @@ small {
 
 #undo {
 	/*position: absolute; top: 40%; margin-top: -1.2em;*/
-
 	/*margin-left: auto;
   margin-right: auto;
   width: 90%;*/
 }
 
-#rallyTable { @table-border-color: #ddd;}
+table {
+    color: black;
+    background: #fff;
+    border: 1px solid #b4b4b4;
+    font: bold 17px helvetica;
+    padding: 0;
+    margin-top:10px;
+    width: 100%;
+    -webkit-border-radius: 8px; 
+}
+
+table thead {
+    color: #666;
+    border-bottom: 1px solid #b4b4b4;
+    border-right: 1px solid #b4b4b4;
+    padding: 10px 10px 10px 10px;
+    background-image: -webkit-linear-gradient(top, #fdfdfd, #eee);
+}
+
+#rallyscroll {
+		overflow-y: scroll;
+		/*overflow-y:visible;*/ 
+		height: 300px;
+}
+     
+table tr td {
+    color: #666;
+    border-bottom: 1px solid #b4b4b4;
+    border-right: 1px solid #b4b4b4;
+    padding: 10px 10px 10px 10px;
+    background-image: -webkit-linear-gradient(top, #fdfdfd, #eee);
+    text-align: center;
+}
+         
+table tr td:last-child {
+    border-right: none;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+
+/*#rallyTable { @table-border-color: #ddd;}
 
 #rallyTable {
   background: rgba(76,31,0, 0.4);
   margin-bottom:30px;
   margin-top:10px;
-}
+}*/
 
-#gameTable { @table-border-color: #ddd;}
+/*#gameTable { @table-border-color: #ddd;}
 
 #gameTable {
   background: rgba(76,31,0, 0.4);
   margin-bottom:30px;
   margin-top:10px;
-}
-
-#games {
-	color: #666;
-	margin-left: auto;
-  margin-right: auto;
-  width: 70%;
-  display: inline
-}
-
-#gamesheading { 
-	color: #f06d2e;
-	margin-left: auto;
-  margin-right: auto;
-  width: 70%;
-  display: inline
-}
+}*/
 	
-#nextgame {
-	position: absolute; top: 90%; margin-top: -1.2em;
+/*position: absolute; top: 75%; margin-top: -1.2em;*/	
+
+/*#nextgame {
+	position: relative;
 	margin-left: auto;
   margin-right: auto;
   width: 100%;
 }
 
 #nextmatch {
-	position: absolute; top: 90%; margin-top: -1.2em;
+	position: relative;
 	margin-left: auto;
   margin-right: auto;
   width: 100%;
+}*/
+
+#gamesheading { 
+	color: #f06d2e;
+	margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  width: 70%;
+  /*display: inline;*/
+  /*text-align: center*/
+}
+
+#games {
+	color: #666;
+	margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  width: 70%;
+  
 }
 
 #conductheading {
 	color: #f06d2e;
 	margin-left: auto;
   margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 0px;
   width: 70%;
-  display: inline
 }
 
 #show_conduct_warning {
 	color: #666;
 	margin-left: auto;
   margin-right: auto;
+  margin-top: 0px;
+  margin-bottom: 0px;
   width: 70%;
-  display: inline
 }
 
 #serveside {
