@@ -31,17 +31,23 @@ var match = function() {
     playerOne.name = $('#playerOneName').val().toUpperCase();
     playerTwo.name = $('#playerTwoName').val().toUpperCase();
     $.mobile.changePage("#page3");
+    loadPlayers();
+  }
+
+  var loadPlayers = function() {
+    $('#serverPlayerOne').text(playerOne.name);
+    $('#serverPlayerTwo').text(playerTwo.name);
     $('#point_P1').text(playerOne.name+ ": " +playerOne.score);
     $('#point_P2').text(playerTwo.name+ ": " +playerTwo.score);
     $('#playerOneStroke').text(playerOne.name);
     $('#playerTwoStroke').text(playerTwo.name);
     $('#playerOneConduct').text(playerOne.name);
     $('#playerTwoConduct').text(playerTwo.name);
-    $('#serveside').text("Select serve side for " +currentPlayer.name);
+    // $('#serveside').text("Select serve side for " +currentPlayer.name);
     $('#P1_score').text(playerOne.name);
     $('#P2_score').text(playerTwo.name);
     $('#P1_name').text(playerOne.name);
-    $('#P2_name').text(playerTwo.name);
+    $('#P2_name').text(playerTwo.name);   
   }
 
   //SERVE SIDE//
@@ -263,6 +269,9 @@ var match = function() {
           conductGameMatchP2();
           break;
       }
+      var elm = $('#conduct_warning');    
+      elm.val('conductdefault').attr('selected', true).siblings('option').removeAttr('selected');
+      elm.selectmenu("refresh", true);
     }
   }
 
@@ -335,8 +344,10 @@ var match = function() {
         }
         break;
       }
-      $('#stroke').val(0);
-      // $('#default').text("Stroke");
+      // $('#stroke').val(0);
+      var el = $('#stroke');    
+      el.val('strokedefault').attr('selected', true).siblings('option').removeAttr('selected');
+      el.selectmenu("refresh", true);
     }
   }
 
@@ -487,11 +498,34 @@ var match = function() {
     $('#point_P2').text(playerTwo.name+ ": " +playerTwo.score);
   }
 
+  function selectServer() {
+    var selectserver = document.getElementById('selectserver');
+    selectserver.onchange = changeHandler;
+    function changeHandler(){
+      // switch($('#stroke option:selected').val()) {
+      switch($('#selectserver').val()) {
+      case "serverPlayerOne":
+      currentPlayer = playerOne;
+      break;
+      case "serverPlayerTwo":
+      currentPlayer = playerTwo;
+      break;
+    }    
+    var default_serveside = $('#selectserver');    
+    default_serveside.val('serverdefault').attr('selected', true).siblings('option').removeAttr('selected');
+    default_serveside.selectmenu("refresh", true);
+    $("#hide_selectserver").hide();
+    $('#serveside').text("Select serve side for " +currentPlayer.name);
+    }
+  }
+
   var resetGame = function() {
     resetGameTable();
     resetScore();
     rallyNumberIncrement();
     $.mobile.changePage("#page3");
+    $("#hide_selectserver").show();
+    $('#serveside').text("");
   }
 
   var matchReset = function() {
@@ -505,7 +539,7 @@ var match = function() {
     playerOne = {'name': '', 'games': 0, 'score': 0, 'conductwarning': 0};
     playerTwo = {'name': '', 'games': 0, 'score': 0, 'conductwarning': 0};
     game = {'serveside': ''}
-    currentPlayer = playerOne;
+    // currentPlayer = playerOne;
     $("#nextmatch").hide();
     $("#nextgame").show();
     // $("#headerdisguise").hide();
@@ -513,13 +547,13 @@ var match = function() {
     $("#serve_right").show();
     $("#serve_left_disguise").hide();
     $("#serve_right_disguise").hide();
+    $("#hide_selectserver").show();
   }
   
   this.startMatch = function() {
     $.mobile.changePage("#page5");
     resetMatch();
     resetGameTable();
-    // resetRallyTable(); //to make reset match button to work
     $('#let').text("Let");
     $('#undo').text("Undo Last Rally");
     $('#serve_left').text("Serve Left");
@@ -531,7 +565,8 @@ var match = function() {
     $('#resetmatch').text("Reset Match");
     $('#gamesheading').text('GAMES');
     $('#conductheading').text('');
-    $('#show_conduct_warning').text('');  
+    $('#show_conduct_warning').text(''); 
+    $('#serveside').text(""); 
   }
 
   this._bindEvents = function() {
@@ -540,6 +575,7 @@ var match = function() {
     $('body').on('click', '#let', letCall);
     $('body').on('click', '#stroke', strokeResult);
     $('body').on('click', '#conduct_warning', conductCall);
+    $('body').on('click', '#selectserver', selectServer);
     $('body').on('click', '#undo', triggerUndo);
     $('body').on('click', '#serve_left', serveLeft);
     $('body').on('click', '#serve_right', serveRight);
@@ -560,8 +596,6 @@ $(document).ready(function(){
   myMatch._bindEvents();
   myMatch.startMatch();
 });
-
-
 
 
 /***************  SWIPING JAVA SCRIPT ENDS HERE *********************/

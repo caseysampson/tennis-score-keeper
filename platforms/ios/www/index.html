@@ -123,16 +123,16 @@
                 Let
                 </button>
 
-                <select id="stroke" data-native-menu="true" data-placeholder="true">
-                <!-- <select id="stroke"> -->
-                  <option value="" selected="selected" id="default">Stroke</option>
+                <!-- <select id="stroke" data-native-menu="false" data-placeholder="true"> -->
+                <select id="stroke">
+                  <option value="strokedefault" selected="selected" id="strokedefault">Stroke</option>
                   <option value="playerOneStroke" id="playerOneStroke">player1</option>
                   <option value="playerTwoStroke" id="playerTwoStroke">player2</option>
                 </select>
                 
-                <select id="conduct_warning" data-native-menu="true" data-placeholder="true">
-                  <!-- <option value="" disabled selected style="display:none;">Conduct Warning</option> -->
-                  <option>Conduct Warning</option>
+                <!-- <select id="conduct_warning" data-native-menu="true" data-placeholder="true"> -->
+                <select id="conduct_warning">
+                  <option value="conductdefault" selected="selected" id="conductdefault">Conduct Warning</option>
                   <option value="playerOneConduct" id="playerOneConduct">player1</option>
                   <option value="playerTwoConduct" id="playerTwoConduct">player2</option>
                 </select>
@@ -218,10 +218,16 @@
                         </div>
                     </div>
                 </div>
+                <div id="hide_selectserver">
+                    <select id="selectserver" data-native-menu="true" data-placeholder="true">
+                      <option value="serverdefault" selected="selected" id="serverdefault">Select Server</option>
+                      <option value="serverPlayerOne" id="serverPlayerOne">player1</option>
+                      <option value="serverPlayerTwo" id="serverPlayerTwo">player2</option>
+                    </select>
+                </div>
                 <!-- --------hidden Button Above------------- -->
                 
-                <h3 id="serveside"> 
-                    Select Serve Side
+                <h3 id="serveside"> <!-- SELECT SERVE SIDE -->
                 </h3>
             </div>
             
@@ -315,6 +321,32 @@
             <h3>&copy SportyHQ 2014</h3>
         </div>
     </div>
+
+    <!-- -----------------------page 3--------------------------- -->
+    <!-- <div data-role="page" class="ui-page" id="page6" data-theme="d">
+        <div data-role="header" data-position="fixed">
+            <h1>SportyHQ</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#page1" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Match</a></li>
+                    <li><a href="#page2" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Calls</a></li>
+                    <li><a href="#page3" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Serve Side</a></li>
+                </ul>
+            </div>
+        </div>
+    
+
+        <select id="selectserver" data-native-menu="true" data-placeholder="true">
+          <option value="serverdefault" selected="selected" id="serverdefault">Select Server</option>
+          <option value="serverPlayerOne" id="serverPlayerOne">player1</option>
+          <option value="serverPlayerTwo" id="serverPlayerTwo">player2</option>
+        </select>
+
+        <div data-role="footer" data-position="fixed" data-fullscreen="true">
+            <h3>&copy SportyHQ 2014</h3>
+        </div>
+    </div> -->
+
 </body>
 </html>
 
