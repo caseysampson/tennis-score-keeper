@@ -95,7 +95,8 @@ var match = function() {
     lastPlayerState = playerHistory.pop();
 
     if (lastPlayerState.playerPrevious == lastGameState.playerCurrent) {
-      $('#rallyTable tr:last').remove();
+      // $('#rallyTable tr:last').remove();
+      $('#rallyTable tr:eq(1)').remove();
       if (playerOne == lastGameState.playerCurrent) {
         currentPlayer = playerOne;
       } else {
@@ -111,7 +112,8 @@ var match = function() {
       switchServeSide();
       $.mobile.changePage("#page1", { transition: "flip"} );    
     } else {
-      $('#rallyTable tr:last').remove();
+      // $('#rallyTable tr:last').remove();
+      $('#rallyTable tr:eq(1)').remove();
       if ((playerOne == lastPlayerState.playerPrevious) && (playerOne.score > 0)) {
         playerOne.score = playerOne.score - 1;
       } else if ((playerTwo == lastPlayerState.playerPrevious) && (playerTwo.score > 0)) {
@@ -141,7 +143,8 @@ var match = function() {
     $('#point_P2').text(playerTwo.name+ ": " +playerTwo.score); 
     
     var tbody = $("#rallyTable tbody");
-    var row = $("<tr>").appendTo(tbody).get(0);
+    // var row = $("<tr>").appendTo(tbody).get(0);
+    var row = $("<tr>").prependTo(tbody).get(0);
     $('#rallyTable tbody tr:last').attr('data-gamestate', serializeGame());
     // $('#rallyTable tbody tr:last').attr('data-playerstate', serializePlayer());//TEST
     var rallyCount = row.insertCell(0);
@@ -159,10 +162,7 @@ var match = function() {
     } else {
       playerTwoScore.innerHTML = "-";
     } 
-    // var rallyscroll = document.getElementById("rallyscroll");
-    // rallyscroll.scrollTop = rallyscroll.scrollHeight; 
-    // debugger;
-    scrollRally();  
+    // scrollRally();  
   }
 
   //GAME//
@@ -186,8 +186,7 @@ var match = function() {
     handleRally();
     rallyNumberIncrement();  
     switchServeSide(); 
-    scrollRally();
-    // $("#rallyscroll").load("#page1"); 
+    // scrollRally();
   }
 
   var checkServerPlayerOne = function() {
@@ -382,7 +381,7 @@ var match = function() {
 
   var awardPointToPlayerOneHandout= function() {
     playerOne.score = playerOne.score + 1;
-    scrollRally();
+    // scrollRally();
 
     if ((playerOne.score >= 11) && (playerOne.score - playerTwo.score >= 2)) {
       playerOne.games = playerOne.games + 1;
@@ -398,7 +397,7 @@ var match = function() {
 
   var awardPointToPlayerTwoHandout = function() { 
     playerTwo.score = playerTwo.score + 1;
-    scrollRally();
+    // scrollRally();
 
     if ((playerTwo.score >= 11) && (playerTwo.score - playerOne.score >= 2)) {
       playerTwo.games = playerTwo.games + 1;
@@ -423,22 +422,15 @@ var match = function() {
     }
   }
 
-  var scrollRally = function() {
-    var rallyscroll = document.getElementById("rallyscroll");
-    rallyscroll.scrollTop = rallyscroll.scrollHeight; 
-  }
-
   // var scrollRally = function() {
-    // window.onload = function() {
-    //   var rallyscroll = document.getElementById("rallyscroll");
-    //   rallyscroll.scrollTop = rallyscroll.scrollHeight;
-    // });
+    // var rallyscroll = document.getElementById("rallyscroll");
+    // rallyscroll.scrollTop = rallyscroll.scrollHeight; 
   // }
 
   var awardPointToPlayerOne = function() {
     playerOne.score = playerOne.score + 1;
     handleRally();
-    scrollRally();
+    // scrollRally();
     
     if ((playerOne.score >= 11) && (playerOne.score - playerTwo.score >= 2)) {
       playerOne.games = playerOne.games + 1;
@@ -455,7 +447,7 @@ var match = function() {
   var awardPointToPlayerTwo = function() { 
     playerTwo.score = playerTwo.score + 1;
     handleRally();
-    scrollRally();
+    // scrollRally();
     
     if ((playerTwo.score >= 11) && (playerTwo.score - playerOne.score >= 2)) {
       playerTwo.games = playerTwo.games + 1;
