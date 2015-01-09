@@ -109,7 +109,7 @@ var match = function() {
       $('#point_P1').text(playerOne.name+ ": " +playerOne.score).off('click')
       $('#point_P2').text(playerTwo.name+ ": " +playerTwo.score).off('click');
       switchServeSide();
-      $.mobile.changePage("#page1");    
+      $.mobile.changePage("#page1", { transition: "flip"} );    
     } else {
       $('#rallyTable tr:last').remove();
       if ((playerOne == lastPlayerState.playerPrevious) && (playerOne.score > 0)) {
@@ -126,17 +126,17 @@ var match = function() {
       $("#serve_right").hide();
       $("#serve_left_disguise").show();
       $("#serve_right_disguise").show();
-      $.mobile.changePage("#page3");
+      $.mobile.changePage("#page3", { transition: "flip"} );
     }
   }
 
   //RALLY//
   var handleRally = function() {
     playerHistory.push(serializePlayer());
-    handleRally1();
+    handleRallyTable();
   }
 
-  var handleRally1 = function() {
+  var handleRallyTable = function() {
     $('#point_P1').text(playerOne.name+ ": " +playerOne.score);
     $('#point_P2').text(playerTwo.name+ ": " +playerTwo.score); 
     
@@ -158,7 +158,11 @@ var match = function() {
       playerTwoScore.innerHTML = playerTwo.score + game.serveside; 
     } else {
       playerTwoScore.innerHTML = "-";
-    }   
+    } 
+    // var rallyscroll = document.getElementById("rallyscroll");
+    // rallyscroll.scrollTop = rallyscroll.scrollHeight; 
+    // debugger;
+    scrollRally();  
   }
 
   //GAME//
@@ -177,11 +181,13 @@ var match = function() {
 
   //BUTTONS//
   var letCall = function() {
-    $.mobile.changePage("#page1");
+    $.mobile.changePage("#page1", { transition: "flip"} );
     switchServeSide();
     handleRally();
     rallyNumberIncrement();  
     switchServeSide(); 
+    scrollRally();
+    // $("#rallyscroll").load("#page1"); 
   }
 
   var checkServerPlayerOne = function() {
@@ -193,7 +199,7 @@ var match = function() {
       // $("#headerdisguise").show();
       $("#serve_left").show();
       $("#serve_right").show();
-      $.mobile.changePage("#page3");
+      $.mobile.changePage("#page3", { transition: "flip"} );
       handOut();
     }
   }
@@ -207,7 +213,7 @@ var match = function() {
       // $("#headerdisguise").show();
       $("#serve_left").show();
       $("#serve_right").show(); 
-      $.mobile.changePage("#page3");
+      $.mobile.changePage("#page3", { transition: "flip"} );
       handOut();
     }
   }
@@ -218,7 +224,7 @@ var match = function() {
     $("#serve_right").show();
     $("#serve_left_disguise").hide();
     $("#serve_right_disguise").hide();
-    $.mobile.changePage("#page1");
+    $.mobile.changePage("#page1", { transition: "flip"} );
     game.serveside = 'L';
   }
 
@@ -228,13 +234,13 @@ var match = function() {
     $("#serve_right_disguise").show();
     $("#serve_left_disguise").hide();
     $("#serve_right_disguise").hide();
-    $.mobile.changePage("#page1");
+    $.mobile.changePage("#page1", { transition: "flip"} );
     game.serveside = 'R';
   }
 
   var serveLeft = function() { 
     // $("#headerdisguise").hide();
-    $.mobile.changePage("#page1");
+    $.mobile.changePage("#page1", { transition: "flip"} );
     game.serveside = 'L';
     handleRally();
     rallyNumberIncrement();
@@ -243,7 +249,7 @@ var match = function() {
 
   var serveRight = function() { 
     // $("#headerdisguise").hide();
-    $.mobile.changePage("#page1");
+    $.mobile.changePage("#page1", { transition: "flip"} );
     game.serveside = 'R';
     handleRally();
     rallyNumberIncrement();
@@ -269,6 +275,10 @@ var match = function() {
           conductGameMatchP2();
           break;
       }
+      // $('#conduct_warning').val(0);
+      $("#conduct_warning").click(function() {   
+        $('#conduct_warning').val(0); 
+      });
       var elm = $('#conduct_warning');    
       elm.val('conductdefault').attr('selected', true).siblings('option').removeAttr('selected');
       elm.selectmenu("refresh", true);
@@ -284,7 +294,7 @@ var match = function() {
       conductGame();
       checkMatchOver();
     } else {
-      $.mobile.changePage("#page1");
+      $.mobile.changePage("#page1", { transition: "flip"} );
     }
     $('#conduct_warning').val(0);
   }
@@ -298,7 +308,7 @@ var match = function() {
       conductGame();
       checkMatchOver();
     } else {
-      $.mobile.changePage("#page1");
+      $.mobile.changePage("#page1", { transition: "flip"} );
     }
     $('#conduct_warning').val(0);
   }
@@ -322,10 +332,10 @@ var match = function() {
           awardPoint();
           switchServeSide(); 
           rallyNumberIncrement();
-          $.mobile.changePage("#page1");
+          $.mobile.changePage("#page1", { transition: "flip"} );
         } else {
           // $("#headerdisguise").show();
-          $.mobile.changePage("#page3");
+          $.mobile.changePage("#page3", { transition: "flip"} );
           handOut(); 
           rallyNumberIncrement();
         }
@@ -335,16 +345,19 @@ var match = function() {
           awardPoint();
           switchServeSide(); 
           rallyNumberIncrement();
-          $.mobile.changePage("#page1");
+          $.mobile.changePage("#page1", { transition: "flip"} );
         } else {
           // $("#headerdisguise").show();
-          $.mobile.changePage("#page3"); 
+          $.mobile.changePage("#page3", { transition: "flip"} ); 
           handOut();
           rallyNumberIncrement(); 
         }
         break;
       }
       // $('#stroke').val(0);
+      $("#stroke").click(function() {   
+        $('#stroke').val(0); 
+      });
       var el = $('#stroke');    
       el.val('strokedefault').attr('selected', true).siblings('option').removeAttr('selected');
       el.selectmenu("refresh", true);
@@ -369,7 +382,8 @@ var match = function() {
 
   var awardPointToPlayerOneHandout= function() {
     playerOne.score = playerOne.score + 1;
-    
+    scrollRally();
+
     if ((playerOne.score >= 11) && (playerOne.score - playerTwo.score >= 2)) {
       playerOne.games = playerOne.games + 1;
       handleGame(); 
@@ -384,6 +398,7 @@ var match = function() {
 
   var awardPointToPlayerTwoHandout = function() { 
     playerTwo.score = playerTwo.score + 1;
+    scrollRally();
 
     if ((playerTwo.score >= 11) && (playerTwo.score - playerOne.score >= 2)) {
       playerTwo.games = playerTwo.games + 1;
@@ -408,11 +423,22 @@ var match = function() {
     }
   }
 
+  var scrollRally = function() {
+    var rallyscroll = document.getElementById("rallyscroll");
+    rallyscroll.scrollTop = rallyscroll.scrollHeight; 
+  }
+
+  // var scrollRally = function() {
+    // window.onload = function() {
+    //   var rallyscroll = document.getElementById("rallyscroll");
+    //   rallyscroll.scrollTop = rallyscroll.scrollHeight;
+    // });
+  // }
+
   var awardPointToPlayerOne = function() {
     playerOne.score = playerOne.score + 1;
     handleRally();
-    var rallyscroll = document.getElementById("rallyscroll");
-    rallyscroll.scrollTop = rallyscroll.scrollHeight; 
+    scrollRally();
     
     if ((playerOne.score >= 11) && (playerOne.score - playerTwo.score >= 2)) {
       playerOne.games = playerOne.games + 1;
@@ -429,8 +455,7 @@ var match = function() {
   var awardPointToPlayerTwo = function() { 
     playerTwo.score = playerTwo.score + 1;
     handleRally();
-    var rallyscroll = document.getElementById("rallyscroll");
-    rallyscroll.scrollTop = rallyscroll.scrollHeight; 
+    scrollRally();
     
     if ((playerTwo.score >= 11) && (playerTwo.score - playerOne.score >= 2)) {
       playerTwo.games = playerTwo.games + 1;
@@ -486,7 +511,7 @@ var match = function() {
 
   var nextGame = function() {
     $('#serveside').text("Select serve side for " +currentPlayer.name);
-    $.mobile.changePage("#page3");
+    $.mobile.changePage("#page3", { transition: "flip"} );
   }
 
   var resetScore = function() {
@@ -498,11 +523,10 @@ var match = function() {
     $('#point_P2').text(playerTwo.name+ ": " +playerTwo.score);
   }
 
-  function selectServer() {
+  function selectServer() {   
     var selectserver = document.getElementById('selectserver');
     selectserver.onchange = changeHandler;
     function changeHandler(){
-      // switch($('#stroke option:selected').val()) {
       switch($('#selectserver').val()) {
       case "serverPlayerOne":
       currentPlayer = playerOne;
@@ -510,7 +534,11 @@ var match = function() {
       case "serverPlayerTwo":
       currentPlayer = playerTwo;
       break;
-    }    
+    }
+    // $('#selectserver').val(0); 
+    $("#selectserver").click(function() {   
+      $('#selectserver').val(0); 
+    });
     var default_serveside = $('#selectserver');    
     default_serveside.val('serverdefault').attr('selected', true).siblings('option').removeAttr('selected');
     default_serveside.selectmenu("refresh", true);
@@ -520,10 +548,9 @@ var match = function() {
   }
 
   var resetGame = function() {
-    resetGameTable();
     resetScore();
     rallyNumberIncrement();
-    $.mobile.changePage("#page3");
+    $.mobile.changePage("#page3", { transition: "flip"} );
     $("#hide_selectserver").show();
     $('#serveside').text("");
   }
