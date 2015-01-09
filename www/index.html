@@ -61,39 +61,21 @@
             </div>
         </div>
 
-            <!-- <div>
-                <table data-role="table" data-mode="columntoggle" class="ui-responsive" id='rallyTable'>
-                    <thead>
-                      <tr>
-                        <th data-priority="1">Rally</th>
-                        <th data-priority="2" id="P1_name">P1-Score</th>  
-                        <th data-priority="4" id="P2_name">P2-Score</th>
-                      </tr>
-                    </thead>
-                      <tbody id='rallyBody'>
-                          <tr> 
-                          </tr>
-                    </tbody>
-                </table>
-            </div> -->
-
-            <!-- Alternative -->
-            <!-- <div> -->
-            <div id="rallyscroll">
-                 <table class="ui-responsive" id='rallyTable'>
-                    <thead>
-                       <tr>
-                           <th>Rally</th>
-                           <th id="P1_name">P1-Score</th> 
-                           <th id="P2_name">P2-Score</th>
-                       </tr>
-                    </thead>
-                    <tbody id='rallyBody' style="height:100px; overflow:auto;">
-                        <tr> 
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div id="rallyscroll">
+             <table class="ui-responsive" id='rallyTable'>
+                <thead>
+                   <tr>
+                       <th>Rally</th>
+                       <th id="P1_name">P1-Score</th> 
+                       <th id="P2_name">P2-Score</th>
+                   </tr>
+                </thead>
+                <tbody id='rallyBody' style="height:100px; overflow:auto;">
+                    <tr> 
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         </div> <!-- end of main page ui-content div -->
     
@@ -302,12 +284,12 @@
         
         <form>
             <div>
-                <label for="basic">Enter player one's name:</label>
-                <input type="text" name="playerOneName" id="playerOneName" value="" placeholder="player name"/>
+                <label for="basic" id="enter_name_one">Enter player's name:</label>
+                <input type="text" name="playerOneName" id="playerOneName" value="" placeholder="name"/>
             </div>    
             <div>
-                <label for="basic">Enter player two's name:</label>
-                <input type="text" name="playerTwoName" id="playerTwoName" value="" placeholder="player name"/>
+                <label for="basic" id="enter_name_two">Enter player's name:</label>
+                <input type="text" name="playerTwoName" id="playerTwoName" value="" placeholder="name"/>
             </div>
         </form>
     
@@ -321,31 +303,6 @@
             <h3>&copy SportyHQ 2014</h3>
         </div>
     </div>
-
-    <!-- -----------------------page 3--------------------------- -->
-    <!-- <div data-role="page" class="ui-page" id="page6" data-theme="d">
-        <div data-role="header" data-position="fixed">
-            <h1>SportyHQ</h1>
-            <div data-role="navbar">
-                <ul>
-                    <li><a href="#page1" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Match</a></li>
-                    <li><a href="#page2" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Calls</a></li>
-                    <li><a href="#page3" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Serve Side</a></li>
-                </ul>
-            </div>
-        </div>
-    
-
-        <select id="selectserver" data-native-menu="true" data-placeholder="true">
-          <option value="serverdefault" selected="selected" id="serverdefault">Select Server</option>
-          <option value="serverPlayerOne" id="serverPlayerOne">player1</option>
-          <option value="serverPlayerTwo" id="serverPlayerTwo">player2</option>
-        </select>
-
-        <div data-role="footer" data-position="fixed" data-fullscreen="true">
-            <h3>&copy SportyHQ 2014</h3>
-        </div>
-    </div> -->
 
 </body>
 </html>

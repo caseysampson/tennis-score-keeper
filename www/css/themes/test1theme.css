@@ -949,12 +949,39 @@ small {
     margin-right: 5px;
 }
 
-#undo {
-	/*position: absolute; top: 40%; margin-top: -1.2em;*/
-	/*margin-left: auto;
-  margin-right: auto;
-  width: 90%;*/
+/* Uncomment below to see alternative */
+
+/*#rallyTable {
+		color: black;
+    background: #fff;
+    border: 1px solid #b4b4b4;
+    font: bold 17px helvetica;
+    padding: 0;
+    margin-top:10px;
+    width: 100%;
+    -webkit-border-radius: 8px; 
+
+    overflow-y: scroll;
+	  position: absolute;
+	  width: 100%;
+	  bottom: 50px;
 }
+
+#point_P1 {
+	position: absolute;
+	z-index: 10;
+	width: 50%;
+	top: 71px;
+}
+
+#point_P2 {
+	position: absolute;
+	z-index: 10;
+	width: 50%;
+	top: 71px;
+}*/
+
+/* Uncomment above to see alternative */
 
 table {
     color: black;
@@ -997,39 +1024,6 @@ table tr:last-child td {
     border-bottom: none;
 }
 
-
-/*#rallyTable { @table-border-color: #ddd;}
-
-#rallyTable {
-  background: rgba(76,31,0, 0.4);
-  margin-bottom:30px;
-  margin-top:10px;
-}*/
-
-/*#gameTable { @table-border-color: #ddd;}
-
-#gameTable {
-  background: rgba(76,31,0, 0.4);
-  margin-bottom:30px;
-  margin-top:10px;
-}*/
-	
-/*position: absolute; top: 75%; margin-top: -1.2em;*/	
-
-/*#nextgame {
-	position: relative;
-	margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-}
-
-#nextmatch {
-	position: relative;
-	margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-}*/
-
 #gamesheading { 
 	color: #f06d2e;
 	margin-left: auto;
@@ -1058,7 +1052,6 @@ table tr:last-child td {
   margin-top: 0px;
   margin-bottom: 0px;
   display: inline;
-  /*width: 70%;*/
 }
 
 #show_conduct_warning {
@@ -1068,7 +1061,24 @@ table tr:last-child td {
   margin-top: 0px;
   margin-bottom: 0px;
   display: inline;
-  /*width: 70%;*/
+}
+
+#enter_name_one {
+	color: #666;
+	/*font-weight: bold;*/
+  margin-top:10px;
+  margin-bottom: 10px;
+}
+
+#enter_name_two {
+	color: #666;
+	/*font-weight: bold;*/
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#startmatch {
+	margin-top: 20px;
 }
 
 #serveside {
@@ -1077,6 +1087,8 @@ table tr:last-child td {
   margin-right: auto;
   width: 70%;
 }
+
+
 
 
 /******************************************** end of swiping pages *********************************/
