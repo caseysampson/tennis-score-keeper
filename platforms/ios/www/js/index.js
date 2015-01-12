@@ -57,8 +57,25 @@ var match = function() {
     }
   }
 
-  //UNDO//
+  var serveLeft = function() { 
+    $("#headerdisguise").hide();
+    $.mobile.changePage("#page1", { transition: "flip"} );
+    game.serveside = 'L';
+    handleRally();
+    rallyNumberIncrement();
+    switchServeSide();
+  }
 
+  var serveRight = function() { 
+    $("#headerdisguise").hide();
+    $.mobile.changePage("#page1", { transition: "flip"} );
+    game.serveside = 'R';
+    handleRally();
+    rallyNumberIncrement();
+    switchServeSide(); 
+  }
+
+  //UNDO//
   var serializeGame = function() {
     var gameState = {
       playerOneScore: playerOne.score,
@@ -82,51 +99,6 @@ var match = function() {
     }
   }
 
-  // var undo = function() {
-  //   $("#undo").hide();
-  //   console.log(gameHistory[gameHistory.length-1]);
-  //   lastGameState = gameHistory.pop();
-  //   console.log(gameHistory[gameHistory.length-1]);
-  //   lastPlayerState = playerHistory.pop();
-
-  //   if (lastPlayerState.playerPrevious == lastGameState.playerCurrent) {
-  //     $('#rallyTable tr:eq(1)').remove();
-  //     if (playerOne == lastGameState.playerCurrent) {
-  //       currentPlayer = playerOne;
-  //     } else {
-  //       currentPlayer = playerTwo;
-  //     }
-  //     playerOne.score = lastGameState.playerOneScore;
-  //     playerTwo.score = lastGameState.playerTwoScore;
-  //     game.servingside = lastGameState.servingSide;
-  //     rallyNumber = lastGameState.rally; 
-  //     $('#serveside').text("Select serve side for " +currentPlayer.name); 
-  //     $('#point_P1').text(playerOne.name+ ": " +playerOne.score).off('click')
-  //     $('#point_P2').text(playerTwo.name+ ": " +playerTwo.score).off('click');
-  //     switchServeSide();
-  //     $.mobile.changePage("#page1", { transition: "flip"} );    
-  //   } else {
-  //     $('#rallyTable tr:eq(1)').remove();
-  //     if ((playerOne == lastPlayerState.playerPrevious) && (playerOne.score > 0)) {
-  //       playerOne.score = playerOne.score - 1;
-  //     } else if ((playerTwo == lastPlayerState.playerPrevious) && (playerTwo.score > 0)) {
-  //       playerTwo.score = playerTwo.score - 1;
-  //     }                
-  //     currentPlayer = lastGameState.playerCurrent;
-  //     rallyNumber = rallyNumber - 1;
-  //     $('#serveside').text("Select serve side for " +currentPlayer.name); 
-  //     $('#point_P1').text(playerOne.name+ ": " +playerOne.score).off('click')
-  //     $('#point_P2').text(playerTwo.name+ ": " +playerTwo.score).off('click');
-  //     $("#serve_left").hide();
-  //     $("#serve_right").hide();
-  //     $("#serve_left_disguise").show();
-  //     $("#serve_right_disguise").show();
-  //     $.mobile.changePage("#page3", { transition: "flip"} );
-  //   }
-  // }
-
-
-
    var undo = function() {
     // $("#undo").hide();
     lastGameState = gameHistory.pop();
@@ -136,7 +108,6 @@ var match = function() {
     var lastplayer = values[4];    
     var lastserveside = values[2];
 
-    // if ((lastplayer == lastGameState.playerCurrent) && (game.serveside != lastserveside)){
     if (lastGameState.letCheck == 1){
       lastrally = gameHistory[gameHistory.length-2];
       keys = Object.keys(lastrally);
@@ -221,6 +192,10 @@ var match = function() {
     }  
   }
 
+  var rallyNumberIncrement = function() {
+    rallyNumber = rallyNumber + 1;
+  }
+
   //GAME//
   var handleGame = function() {
     var tbody = $("#gameTable tbody");
@@ -234,8 +209,7 @@ var match = function() {
     playerTwoGameScore.innerHTML = playerTwo.score;        
   }
 
-
-  //BUTTONS//
+  //CALLS//
   var letCall = function() {
     currentPlayer.letcalled = currentPlayer.letcalled + 1;
     $.mobile.changePage("#page1", { transition: "flip"} );
@@ -245,77 +219,6 @@ var match = function() {
     rallyNumberIncrement();  
     switchServeSide(); 
     currentPlayer.letcalled = currentPlayer.letcalled - 1;
-  }
-
-  var checkServerPlayerOne = function() {
-    if (currentPlayer == playerOne) {
-      awardPoint();
-      switchServeSide();
-      rallyNumberIncrement();
-    } else {
-      $("#headerdisguise").show();
-      $("#serve_left").show();
-      $("#serve_right").show();
-      $.mobile.changePage("#page3", { transition: "flip"} );
-      handOut();
-    }
-  }
-
-  var checkServerPlayerTwo = function() {
-    if (currentPlayer == playerTwo) {
-      awardPoint();
-      switchServeSide();
-      rallyNumberIncrement();
-    } else {
-      $("#headerdisguise").show();
-      $("#serve_left").show();
-      $("#serve_right").show(); 
-      $.mobile.changePage("#page3", { transition: "flip"} );
-      handOut();
-    }
-  }
-
-  var serveLeftDisguise = function() { 
-    $("#headerdisguise").hide();
-    $("#serve_left").show();
-    $("#serve_right").show();
-    $("#serve_left_disguise").hide();
-    $("#serve_right_disguise").hide();
-    $.mobile.changePage("#page1", { transition: "flip"} );
-    game.serveside = 'L';
-  }
-
-  var serveRightDisguise = function() { 
-    $("#headerdisguise").hide();
-    $("#serve_left_disguise").show();
-    $("#serve_right_disguise").show();
-    $("#serve_left_disguise").hide();
-    $("#serve_right_disguise").hide();
-    $.mobile.changePage("#page1", { transition: "flip"} );
-    game.serveside = 'R';
-  }
-
-  var serveLeft = function() { 
-    $("#headerdisguise").hide();
-    $.mobile.changePage("#page1", { transition: "flip"} );
-    game.serveside = 'L';
-    handleRally();
-    rallyNumberIncrement();
-    switchServeSide();
-  }
-
-  var serveRight = function() { 
-    $("#headerdisguise").hide();
-    $.mobile.changePage("#page1", { transition: "flip"} );
-    game.serveside = 'R';
-    handleRally();
-    rallyNumberIncrement();
-    switchServeSide(); 
-  }
-
-  //BUTTONS ABOVE
-  var rallyNumberIncrement = function() {
-    rallyNumber = rallyNumber + 1;
   }
 
   var conductCall = function() {
@@ -423,6 +326,35 @@ var match = function() {
     }
   }
 
+  //POINTS//
+  var checkServerPlayerOne = function() {
+    if (currentPlayer == playerOne) {
+      awardPoint();
+      switchServeSide();
+      rallyNumberIncrement();
+    } else {
+      $("#headerdisguise").show();
+      $("#serve_left").show();
+      $("#serve_right").show();
+      $.mobile.changePage("#page3", { transition: "flip"} );
+      handOut();
+    }
+  }
+
+  var checkServerPlayerTwo = function() {
+    if (currentPlayer == playerTwo) {
+      awardPoint();
+      switchServeSide();
+      rallyNumberIncrement();
+    } else {
+      $("#headerdisguise").show();
+      $("#serve_left").show();
+      $("#serve_right").show(); 
+      $.mobile.changePage("#page3", { transition: "flip"} );
+      handOut();
+    }
+  }
+
   var handOut = function() {
     switchPlayer();
     awardPointHandout();
@@ -430,8 +362,8 @@ var match = function() {
   }
 
   var awardPointHandout = function() {
-    $("#undo").show();
-    gameHistory.push(serializeGame()); // NEW UNDO
+    // $("#undo").show();
+    gameHistory.push(serializeGame()); 
     if (currentPlayer == playerOne) {
       awardPointToPlayerOneHandout();
     } else {
@@ -450,19 +382,14 @@ var match = function() {
   }
 
   var awardPoint = function() {
-    $("#undo").show();
-    gameHistory.push(serializeGame()); //NEW UNDO
+    // $("#undo").show();
+    gameHistory.push(serializeGame()); 
     if (currentPlayer == playerOne) {
       awardPointToPlayerOne();
     } else {
       awardPointToPlayerTwo();
     }
   }
-
-  // var scrollRally = function() {
-    // var rallyscroll = document.getElementById("rallyscroll");
-    // rallyscroll.scrollTop = rallyscroll.scrollHeight; 
-  // }
 
   var awardPointToPlayerOne = function() {
     playerOne.score = playerOne.score + 1;
@@ -502,19 +429,26 @@ var match = function() {
     }
   }
 
-  var checkMatchOver = function() {
-    $("#nextgame").hide();
-    $("#nextmatch").show();
-    $.mobile.changePage("#page4"); 
-    $('body').on('click', '#nextmatch', _this.startMatch);
-  }
-
+  //SWITCH CURRENT PLAYER//
   var switchPlayer = function() {
     if (currentPlayer == playerOne) {
       currentPlayer = playerTwo
     } else {
       currentPlayer = playerOne
     }
+  }
+
+  // var scrollRally = function() {
+    // var rallyscroll = document.getElementById("rallyscroll");
+    // rallyscroll.scrollTop = rallyscroll.scrollHeight; 
+  // }
+
+  //(GAME & MATCH RESET) & SHOW END GAME//
+  var checkMatchOver = function() {
+    $("#nextgame").hide();
+    $("#nextmatch").show();
+    $.mobile.changePage("#page4"); 
+    $('body').on('click', '#nextmatch', _this.startMatch);
   }
 
   var showEndGame = function() {
@@ -604,8 +538,6 @@ var match = function() {
     $("#headerdisguise").hide();
     $("#serve_left").show();
     $("#serve_right").show();
-    $("#serve_left_disguise").hide();
-    $("#serve_right_disguise").hide();
     $("#hide_selectserver").show();
   }
   
@@ -617,8 +549,6 @@ var match = function() {
     $('#undo').text("Undo Last Rally");
     $('#serve_left').text("Serve Left");
     $('#serve_right').text("Serve Right");
-    $("#serve_left_disguise").text("Serve Left");
-    $("#serve_right_disguise").text("Serve Right");
     $('#nextgame').text("Start Next Game"); 
     $('#resetgame').text("Reset Game");
     $('#resetmatch').text("Reset Match");
@@ -634,15 +564,13 @@ var match = function() {
     $('body').on('click', '#let', letCall);
     
     // $('body').on('click', '#stroke', strokeResult);
-    $('#stroke').off('click').on('click', strokeResult); //Try this
+    $('#stroke').off('click').on('click', strokeResult); //Trying to fix select menu default
 
     $('body').on('click', '#conduct_warning', conductCall);
     $('body').on('click', '#selectserver', selectServer);
     $('body').on('click', '#undo', triggerUndo);
     $('body').on('click', '#serve_left', serveLeft);
     $('body').on('click', '#serve_right', serveRight);
-    $('body').on('click', '#serve_left_disguise', serveLeftDisguise);
-    $('body').on('click', '#serve_right_disguise', serveRightDisguise);
     $('body').on('click', '#startmatch', getPlayers);
     $('body').on('click', '#nextgame', nextGame);
     $('body').on('click', '#resetmatch', matchReset);

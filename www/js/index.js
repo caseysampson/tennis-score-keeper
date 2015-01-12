@@ -57,26 +57,6 @@ var match = function() {
     }
   }
 
-  // var serveLeftDisguise = function() { 
-  //   $("#headerdisguise").hide();
-  //   $("#serve_left").show();
-  //   $("#serve_right").show();
-  //   $("#serve_left_disguise").hide();
-  //   $("#serve_right_disguise").hide();
-  //   $.mobile.changePage("#page1", { transition: "flip"} );
-  //   game.serveside = 'L';
-  // }
-
-  // var serveRightDisguise = function() { 
-  //   $("#headerdisguise").hide();
-  //   $("#serve_left_disguise").show();
-  //   $("#serve_right_disguise").show();
-  //   $("#serve_left_disguise").hide();
-  //   $("#serve_right_disguise").hide();
-  //   $.mobile.changePage("#page1", { transition: "flip"} );
-  //   game.serveside = 'R';
-  // }
-
   var serveLeft = function() { 
     $("#headerdisguise").hide();
     $.mobile.changePage("#page1", { transition: "flip"} );
@@ -168,7 +148,6 @@ var match = function() {
       }               
       playerOne.score = lastGameState.playerOneScore;
       playerTwo.score = lastGameState.playerTwoScore;
-
       if (game.serveside != lastserveside) {
         game.servingside = lastserveside;
       } else {
@@ -229,9 +208,7 @@ var match = function() {
     playerTwoGameScore.innerHTML = playerTwo.score;        
   }
 
-
   //CALLS//
-
   var letCall = function() {
     currentPlayer.letcalled = currentPlayer.letcalled + 1;
     $.mobile.changePage("#page1", { transition: "flip"} );
@@ -384,8 +361,8 @@ var match = function() {
   }
 
   var awardPointHandout = function() {
-    $("#undo").show();
-    gameHistory.push(serializeGame()); // NEW UNDO
+    // $("#undo").show();
+    gameHistory.push(serializeGame()); 
     if (currentPlayer == playerOne) {
       awardPointToPlayerOneHandout();
     } else {
@@ -404,8 +381,8 @@ var match = function() {
   }
 
   var awardPoint = function() {
-    $("#undo").show();
-    gameHistory.push(serializeGame()); //NEW UNDO
+    // $("#undo").show();
+    gameHistory.push(serializeGame()); 
     if (currentPlayer == playerOne) {
       awardPointToPlayerOne();
     } else {
@@ -560,8 +537,6 @@ var match = function() {
     $("#headerdisguise").hide();
     $("#serve_left").show();
     $("#serve_right").show();
-    // $("#serve_left_disguise").hide();
-    // $("#serve_right_disguise").hide();
     $("#hide_selectserver").show();
   }
   
@@ -573,8 +548,6 @@ var match = function() {
     $('#undo').text("Undo Last Rally");
     $('#serve_left').text("Serve Left");
     $('#serve_right').text("Serve Right");
-    // $("#serve_left_disguise").text("Serve Left");
-    // $("#serve_right_disguise").text("Serve Right");
     $('#nextgame').text("Start Next Game"); 
     $('#resetgame').text("Reset Game");
     $('#resetmatch').text("Reset Match");
@@ -590,15 +563,13 @@ var match = function() {
     $('body').on('click', '#let', letCall);
     
     // $('body').on('click', '#stroke', strokeResult);
-    $('#stroke').off('click').on('click', strokeResult); //Try this
+    $('#stroke').off('click').on('click', strokeResult); //Trying to fix select menu default
 
     $('body').on('click', '#conduct_warning', conductCall);
     $('body').on('click', '#selectserver', selectServer);
     $('body').on('click', '#undo', triggerUndo);
     $('body').on('click', '#serve_left', serveLeft);
     $('body').on('click', '#serve_right', serveRight);
-    // $('body').on('click', '#serve_left_disguise', serveLeftDisguise);
-    // $('body').on('click', '#serve_right_disguise', serveRightDisguise);
     $('body').on('click', '#startmatch', getPlayers);
     $('body').on('click', '#nextgame', nextGame);
     $('body').on('click', '#resetmatch', matchReset);
