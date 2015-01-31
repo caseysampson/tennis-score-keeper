@@ -1,2 +1,1 @@
-scoring-app-v1.0
-================
+A mobile squash scoring app for referees.

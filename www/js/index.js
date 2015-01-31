@@ -89,7 +89,6 @@ var match = function() {
   }
 
   var triggerUndo = function() {
-    // $('#serveside').text(""); 
     if (rallyNumber > 3) {
       undo();
     } else {
@@ -100,7 +99,6 @@ var match = function() {
   }
 
    var undo = function() {
-    // $("#undo").hide();
     lastGameState = gameHistory.pop();
     var lastrally = gameHistory[gameHistory.length-1];
     var keys = Object.keys(lastrally);
@@ -234,7 +232,6 @@ var match = function() {
           conductGameMatchP2();
           break;
       }
-      // $('#conduct_warning').val(0);
       $("#conduct_warning").click(function() {   
         $('#conduct_warning').val(0); 
       });
@@ -313,12 +310,7 @@ var match = function() {
           rallyNumberIncrement(); 
         }
         break;
-      }
-      // $('#stroke').val(0);
-      // $("#stroke").click(function() {   
-      //   $('#stroke').val(0); 
-      // });
-      
+      }  
       var default_stroke = $('#stroke');    
       default_stroke.val('strokedefault').attr('selected', true).siblings('option').removeAttr('selected');
       default_stroke.selectmenu("refresh", true);
@@ -361,7 +353,6 @@ var match = function() {
   }
 
   var awardPointHandout = function() {
-    // $("#undo").show();
     gameHistory.push(serializeGame()); 
     if (currentPlayer == playerOne) {
       awardPointToPlayerOneHandout();
@@ -381,7 +372,6 @@ var match = function() {
   }
 
   var awardPoint = function() {
-    // $("#undo").show();
     gameHistory.push(serializeGame()); 
     if (currentPlayer == playerOne) {
       awardPointToPlayerOne();
@@ -436,11 +426,6 @@ var match = function() {
       currentPlayer = playerOne
     }
   }
-
-  // var scrollRally = function() {
-    // var rallyscroll = document.getElementById("rallyscroll");
-    // rallyscroll.scrollTop = rallyscroll.scrollHeight; 
-  // }
 
   //(GAME & MATCH RESET) & SHOW END GAME//
   var checkMatchOver = function() {
@@ -561,10 +546,7 @@ var match = function() {
     $('body').on('click', '#point_P1', checkServerPlayerOne);
     $('body').on('click', '#point_P2', checkServerPlayerTwo);
     $('body').on('click', '#let', letCall);
-    
-    // $('body').on('click', '#stroke', strokeResult);
-    $('#stroke').off('click').on('click', strokeResult); //Trying to fix select menu default
-
+    $('#stroke').off('click').on('click', strokeResult);
     $('body').on('click', '#conduct_warning', conductCall);
     $('body').on('click', '#selectserver', selectServer);
     $('body').on('click', '#undo', triggerUndo);
@@ -587,19 +569,3 @@ $(document).ready(function(){
 });
 
 
-/***************  SWIPING JAVA SCRIPT ENDS HERE *********************/
-// $('div.ui-page').live("swipeleft", function () {
-//     var nextpage = $(this).next('div[data-role="page"]');
-//     if (nextpage.length > 0) {
-//         $.mobile.changePage(nextpage, "slide", false, true);
-//     }
-// });
-// $('div.ui-page').live("swiperight", function () {
-//     var prevpage = $(this).prev('div[data-role="page"]');
-//     if (prevpage.length > 0) {
-//         $.mobile.changePage(prevpage, {
-//             transition: "slide",
-//             reverse: true
-//         }, true, true);
-//     }
-// }); 
