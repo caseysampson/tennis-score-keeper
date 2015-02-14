@@ -1,1 +1,1 @@
-A mobile squash scoring app for referees.
+A mobile tennis scoring app for referees.
