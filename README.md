@@ -1,1 +1,1 @@
-A mobile tennis scoring app for referees. test
+A mobile squash scoring app for referees.
