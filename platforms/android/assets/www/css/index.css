@@ -69,6 +69,10 @@ body {
     }
 }
 
+.nav {
+    position: fixed;
+}
+
 h1 {
     font-size:24px;
     font-weight:normal;
@@ -112,4 +116,13 @@ h1 {
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
+}
+
+
+.table { @table-border-color: #ddd;}
+
+.table_style {
+  background: rgba(76,31,0, 0.4);
+  margin-bottom:30px;
+  margin-top:10px;
 }

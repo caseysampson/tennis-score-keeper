@@ -24,7 +24,7 @@
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
-        <link rel="stylesheet" href="css/themes/test1theme.css" />
+        <link rel="stylesheet" href="css/themes/tennistheme.css" />
         <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -35,12 +35,12 @@
         <div data-role="page" class="ui-page" id="page1" data-theme="d">
 <!-- header ------------------------------ -->
             <div data-role="header" data-position="fixed">
-             <h1>SportyHQ</h1>
+             <h1>Tennis</h1>
                 <div data-role="navbar">
                     <ul>
                         <li><a href="#page1" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Match</a></li>
                         <li><a href="#page2" class="ui-btn ui-btn-inline ui-btn-persist" data-transition="flip">Calls</a></li>
-                        <li><a href="#page3" class="ui-btn ui-btn-inline ui-btn-persist" data-transition="flip">Serve Side</a></li>
+                        <li><a href="#page6" class="ui-btn ui-btn-inline ui-btn-persist" data-transition="flip">Game Tally</a></li>
                     </ul>                 
                 </div>
             </div>
@@ -65,7 +65,7 @@
              <table class="ui-responsive" id='rallyTable'>
                 <thead>
                    <tr>
-                       <th>Rally</th>
+                       <th id="rally_number">Rally</th>
                        <th id="P1_name">P1-Score</th> 
                        <th id="P2_name">P2-Score</th>
                    </tr>
@@ -81,7 +81,7 @@
     
   <!-- -------------------------- Footer --------------------------------------- -->
                         <div data-role="footer" data-position="fixed" data-fullscreen="true">
-                            <h3>&copy SportyHQ 2014</h3>
+                            <h3>&copy Tennis 2014</h3>
                         </div> <!-- end of footer div -->
 
     
@@ -90,12 +90,12 @@
         <div data-role="page" class="ui-page"id="page2" data-theme="d">
             
             <div data-role="header" data-position="fixed">
-                <h1>SportyHQ</h1>
+                <h1>Tennis</h1>
                 <div data-role="navbar">
                     <ul>
                         <li><a href="#page1" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Match</a></li>
                         <li><a href="#page2" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Calls</a></li>
-                        <li><a href="#page3" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Serve Side</a></li>
+                        <li><a href="#page6" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Game Tally</a></li>
                     </ul>
                 </div>
             </div>
@@ -104,20 +104,10 @@
                 <button type="submit" class="btn btn-default btn-lg btn-block" id="let">
                 Let
                 </button>
-
-                <!-- <select id="stroke" data-native-menu="false" data-placeholder="true"> -->
-                <select id="stroke">
-                  <option value="strokedefault" selected="selected" id="strokedefault">Stroke</option>
-                  <option value="playerOneStroke" id="playerOneStroke">player1</option>
-                  <option value="playerTwoStroke" id="playerTwoStroke">player2</option>
-                </select>
                 
-                <!-- <select id="conduct_warning" data-native-menu="true" data-placeholder="true"> -->
-                <select id="conduct_warning">
-                  <option value="conductdefault" selected="selected" id="conductdefault">Conduct Warning</option>
-                  <option value="playerOneConduct" id="playerOneConduct">player1</option>
-                  <option value="playerTwoConduct" id="playerTwoConduct">player2</option>
-                </select>
+                <button type="submit" class="btn btn-default btn-lg btn-block" id="fault">
+                Fault
+                </button>
 
                 <button type="submit" class="btn btn-default btn-lg btn-block" id="undo">
                 Undo
@@ -141,50 +131,36 @@
             </div>
 
             <div data-role="footer"  data-position="fixed" data-fullscreen="true">
-                <h3>&copy SportyHQ 2014</h3>
+                <h3>&copy Tennis 2014</h3>
             </div>
         </div>
  <!-- --------------------- Page 3 ------------------------- -->
         <div data-role="page" class="ui-page" id="page3" data-theme="d">
             <div data-role="header" data-position="fixed">
-                <h1>SportyHQ</h1>
+                <h1>Tennis</h1>
                 <div data-role="navbar">
                     <ul>
-                        <li><a href="#page1" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Match</a></li>
-                        <li><a href="#page2" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Calls</a></li>
-                        <li><a href="#page3" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Serve Side</a></li>
+                        <li><a href="#page3" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Match</a></li>
+                        <li><a href="#page3" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Calls</a></li>
+                        <li><a href="#page3" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Game Tally</a></li>
                     </ul>
                 </div>
             </div>
             <!-- --------hidden Header Below------------- -->
             <div data-role="header" data-position="fixed" id="headerdisguise">
-                <h1>SportyHQ</h1>
+                <h1>Tennis</h1>
                 <div data-role="navbar">
                     <ul>
-                        <li><a href="#page3" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Match</a></li>
-                        <li><a href="#page3" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Calls</a></li>
-                        <li><a href="#page3" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Serve Side</a></li>
+                        <li><a href="#page6" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Match</a></li>
+                        <li><a href="#page6" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Calls</a></li>
+                        <li><a href="#page6" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Game Tally</a></li>
                     </ul>
                 </div>
             </div>
             <!-- --------hidden Header Above------------- -->
            
             <div data-role="main" class="ui-content">
-               <div class="ui-grid-a">
-                    <div class="ui-block-a">
-                      <button type="submit" class="btn btn-default btn-lg btn-block" id="serve_left">
-                        Serve Left
-                      </button>
-                    </div>   
-                    <div class="ui-block-b"> 
-                        <div class="button-wrap">
-                            <button type="submit" class="btn btn-default btn-lg btn-block" id="serve_right">
-                            Serve Right
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
+    
                 <div id="hide_selectserver">
                     <select id="selectserver" data-native-menu="true" data-placeholder="true">
                       <option value="serverdefault" selected="selected" id="serverdefault">Select Server</option>
@@ -193,48 +169,24 @@
                     </select>
                 </div>
                 
-                <h3 id="serveside"> <!-- SELECT SERVE SIDE -->
-                </h3>
             </div>
             
             <div data-role="footer" data-position="fixed" data-fullscreen="true">
-                <h3>&copy SportyHQ 2014</h3>
+                <h3>&copy Tennis 2014</h3>
             </div>
         </div>
 
 <!---------------------------Page 4-------------------------------------------->
     <div data-role="page" class="ui-page" id="page4" data-theme="d">
         <div data-role="header" data-position="fixed">
-            <h1>SportyHQ</h1>
+            <h1>Tennis</h1>
             <div data-role="navbar">
                 <ul>
                     <li><a href="#page1" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Match</a></li>
                     <li><a href="#page2" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Calls</a></li>
-                    <li><a href="#page3" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Serve Side</a></li>
+                    <li><a href="#page6" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Game Tally</a></li>
                 </ul>
             </div>
-        </div>
-        
-        <h3 id="gamesheading">GAMES</h3>
-        <h4 id="games"></h4><br>
-        <h3 id="conductheading"></h3>
-        <h4 id="show_conduct_warning"></h4>
-
-        <div>
-            <!-- <table data-role="table" data-mode="columntoggle" class="ui-responsive" id='gameTable'> -->
-            <table class="ui-responsive" id='gameTable'>
-                <thead>
-                  <tr>
-                    <th data-priority="1">Game</th>
-                    <th data-priority="2" id="P1_score">P1-Score</th>   
-                    <th data-priority="3" id="P2_score">P2-Score</th>
-                  </tr>
-                </thead>
-                  <tbody id='gameBody'>
-                      <tr> 
-                      </tr>
-                </tbody>
-            </table>
         </div>
 
         <div data-role="main" class="ui-content">
@@ -248,20 +200,37 @@
             </div>
         </div>
 
+        <div>
+            <table class="ui-responsive" id='setTable'>
+                <thead>
+                  <tr>
+                    <th data-priority="1" id="set_number">Match</th>
+                    <th data-priority="2" id="P1_game">P1-Games</th>   
+                    <th data-priority="3" id="P2_game">P2-Games</th>
+                  </tr>
+                </thead>
+                <tbody id='setBody'>
+                    <tr> 
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
          <div data-role="footer" data-position="fixed" data-fullscreen="true">
-            <h3>&copy SportyHQ 2014</h3>
+            <h3>&copy Tennis 2014</h3>
         </div>
     </div>
 
 <!-- ----------------------------page 5--------------------------------------- -->
     <div data-role="page" class="ui-page" id="page5" data-theme="d">
         <div data-role="header" data-position="fixed">
-            <h1>SportyHQ</h1>
+            <h1>Tennis</h1>
             <div data-role="navbar">
                 <ul>
-                    <li><a href="#page1" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Match</a></li>
-                    <li><a href="#page2" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Calls</a></li>
-                    <li><a href="#page3" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Serve Side</a></li>
+                    <li><a href="#page5" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Match</a></li>
+                    <li><a href="#page5" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Calls</a></li>
+                    <li><a href="#page5" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Game Tally</a></li>
                 </ul>
             </div>
         </div>
@@ -284,7 +253,84 @@
         </div>
 
         <div data-role="footer" data-position="fixed" data-fullscreen="true">
-            <h3>&copy SportyHQ 2014</h3>
+            <h3>&copy Tennis 2014</h3>
+        </div>
+    </div>
+
+
+<!---------------------------Page 6-------------------------------------------->
+    <div data-role="page" class="ui-page" id="page6" data-theme="d">
+        <div data-role="header" data-position="fixed">
+            <h1>Tennis</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#page1" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Match</a></li>
+                    <li><a href="#page2" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Calls</a></li>
+                    <li><a href="#page6" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">Game Tally</a></li>
+                </ul>
+            </div>
+        </div>
+        
+
+        <div data-role="main" class="ui-content">
+            <div>
+                <button type="submit" class="btn btn-default btn-lg btn-block" id="match_score">Match Tally</button>
+                <!-- <a href="#page4" class="ui-btn ui-btn-inline ui-btn-persist"  data-transition="flip">View Match Score</a> -->
+            </div>
+        </div>
+
+        <div id="gameTableBuffer">
+            <div>
+                <table class="ui-responsive" id='gameTable'>
+                    <thead>
+                      <tr>
+                        <th data-priority="1" id="game_number">Set 1</th>
+                        <th data-priority="2" id="P1_score">P1-Score</th>   
+                        <th data-priority="3" id="P2_score">P2-Score</th>
+                      </tr>
+                    </thead>
+                    <tbody id='gameBody'>
+                        <tr> 
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div>
+                <table class="ui-responsive" id='gameTable2'>
+                    <thead>
+                      <tr>
+                        <th data-priority="1" id="game_number2">Set 2</th>
+                        <th data-priority="2" id="P1_score2">P1-Score</th>   
+                        <th data-priority="3" id="P2_score2">P2-Score</th>
+                      </tr>
+                    </thead>
+                    <tbody id='gameBody'>
+                        <tr> 
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div>
+                <table class="ui-responsive" id='gameTable3'>
+                    <thead>
+                      <tr>
+                        <th data-priority="1" id="game_number3">Set 3</th>
+                        <th data-priority="2" id="P1_score3">P1-Score</th>   
+                        <th data-priority="3" id="P2_score3">P2-Score</th>
+                      </tr>
+                    </thead>
+                    <tbody id='gameBody'>
+                        <tr> 
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+         <div data-role="footer" data-position="fixed" data-fullscreen="true">
+            <h3>&copy Tennis 2014</h3>
         </div>
     </div>
 
